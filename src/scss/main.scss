@@ -1,0 +1,60 @@
+#container {
+  main {
+    min-height: 350px;
+    background: chartreuse;
+  }
+  .content-nav {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    overflow: auto;
+    ul {
+      min-width: max-content;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      li {
+        a {
+          padding: 10px;
+        }
+      }
+    }
+  }
+  .banner-type1 {
+    display: flex;
+    position: relative;
+    height: 50px;
+    & > div {
+      width: 80%;
+      height: 100%;
+      position: absolute;
+      &:first-child {
+        left: 0;
+        background: chocolate;
+        z-index: 2;
+      }
+      &:last-child {
+        right: 0;
+        background: cornflowerblue;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+/* responsive */
+
+@include mobile-s {
+}
+
+@include mobile {
+}
+
+@include tablet {
+}
+
+@include desktop {
+}
+
+@include desktop-l {
+}

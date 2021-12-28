@@ -1,0 +1,65 @@
+header {
+  nav {
+    border-bottom: 1px solid black;
+  }
+  .global-nav {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 50px auto 50px 50px;
+    align-items: center;
+    gap: 5px;
+    & > a {
+      height: 40px;
+      background: #dbdbdb;
+      &.logo {
+      }
+      &.delivery {
+      }
+      &.cart {
+      }
+    }
+    .search {
+      position: relative;
+      input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid black;
+        padding: 10px;
+      }
+      button {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  .local-nav {
+    padding: 10px 20px;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      li {
+        a {
+        }
+      }
+    }
+  }
+}
+
+/* responsive */
+
+@include mobile-s {
+}
+
+@include mobile {
+}
+
+@include tablet {
+}
+
+@include desktop {
+}
+
+@include desktop-l {
+}

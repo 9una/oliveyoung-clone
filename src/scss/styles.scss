@@ -1,0 +1,34 @@
+@import "_variables";
+@import "_mixins";
+@import "main";
+@import "header";
+@import "footer";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 13px;
+}
+body {
+  width: 100%;
+}
+
+/* responsive */
+
+@include mobile-s {
+}
+
+@include mobile {
+}
+
+@include tablet {
+}
+
+@include desktop {
+}
+
+@include desktop-l {
+}

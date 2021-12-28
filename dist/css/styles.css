@@ -1,0 +1,184 @@
+#container main {
+  min-height: 350px;
+  background: chartreuse;
+}
+#container .content-nav {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  overflow: auto;
+}
+#container .content-nav ul {
+  min-width: max-content;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#container .content-nav ul li a {
+  padding: 10px;
+}
+#container .banner-type1 {
+  display: flex;
+  position: relative;
+  height: 50px;
+}
+#container .banner-type1 > div {
+  width: 80%;
+  height: 100%;
+  position: absolute;
+}
+#container .banner-type1 > div:first-child {
+  left: 0;
+  background: chocolate;
+  z-index: 2;
+}
+#container .banner-type1 > div:last-child {
+  right: 0;
+  background: cornflowerblue;
+  z-index: 1;
+}
+
+/* responsive */
+header nav {
+  border-bottom: 1px solid black;
+}
+header .global-nav {
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 50px auto 50px 50px;
+  align-items: center;
+  gap: 5px;
+}
+header .global-nav > a {
+  height: 40px;
+  background: #dbdbdb;
+}
+header .global-nav .search {
+  position: relative;
+}
+header .global-nav .search input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 10px;
+}
+header .global-nav .search button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+header .local-nav {
+  padding: 10px 20px;
+}
+header .local-nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+/* responsive */
+footer {
+  display: flex;
+  flex-direction: column;
+  background: #e9e9e9;
+  border-top: 1px solid black;
+}
+footer > div {
+  width: 100%;
+}
+footer .footer-top {
+  display: flex;
+  justify-content: space-between;
+  background: #dbdbdb;
+}
+footer .footer-top a {
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+}
+footer .footer-mid {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-bottom: 1px solid #cfcfcf;
+  padding: 15px 0;
+}
+footer .footer-mid .business-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+footer .footer-mid .business-info span {
+  padding: 10px;
+}
+footer .footer-mid .business-info .info-box {
+  background: #dbdbdb;
+  padding: 10px;
+}
+footer .footer-mid .business-info .info-box p {
+  text-align: center;
+}
+footer .footer-mid .cs-btn {
+  display: grid;
+  grid-template-columns: 80px 150px 80px;
+  justify-content: center;
+  gap: 5px;
+}
+footer .footer-mid .cs-btn a {
+  border: 1px solid black;
+}
+footer .footer-mid .cs-btn a:first-child, footer .footer-mid .cs-btn a:nth-child(3) {
+  grid-row: span 2;
+}
+footer .footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+}
+footer .footer-bottom .sns {
+  text-align: center;
+}
+footer .footer-bottom .sns ul {
+  display: flex;
+  gap: 5px;
+}
+footer .footer-bottom .sns ul li a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid black;
+  font-size: 0;
+}
+footer .footer-bottom .footer-nav {
+  display: flex;
+}
+footer .footer-bottom .footer-nav a {
+  display: flex;
+  align-items: center;
+}
+footer .footer-bottom .footer-nav a:not(:last-child)::after {
+  content: "";
+  width: 1px;
+  height: 10px;
+  background: black;
+  margin: 0 5px;
+}
+
+/* responsive */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 13px;
+}
+
+body {
+  width: 100%;
+}
+
+/* responsive */
+
+/*# sourceMappingURL=styles.css.map */
