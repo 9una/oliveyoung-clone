@@ -1,3 +1,6 @@
+#container {
+  padding-top: 96px;
+}
 #container > section .wrapper, #container > div .wrapper {
   padding: 20px 15px 30px;
 }
@@ -325,19 +328,17 @@
   padding-left: calc(50% - 150px);
   padding-right: calc(50% - 150px);
   gap: 20px;
-}
-#container .banner-type4 .content ul li {
-  width: 250px;
+  height: 380px;
 }
 #container .banner-type4 .content ul li a {
   border-radius: 30px;
+  width: 250px;
   height: 300px;
   background: dimgray;
-}
-#container .banner-type4 .content ul li.active {
-  width: 300px;
+  transition: all 0.3s;
 }
 #container .banner-type4 .content ul li.active a {
+  width: 300px;
   height: 380px;
 }
 #container .brand .content {
@@ -405,6 +406,14 @@
   position: fixed;
   bottom: 0;
   z-index: 9;
+  opacity: 1;
+  transition: transform 0.3s;
+}
+#mobile-footer-tab.scroll-down {
+  transform: translateY(61px);
+}
+#mobile-footer-tab.scroll-down ul {
+  opacity: 0;
 }
 #mobile-footer-tab .go-top {
   width: 50px;
@@ -424,11 +433,35 @@
   background: white;
   border-top: 1px solid black;
   height: 60px;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
+  transition: opacity 0.3s;
+}
+#mobile-footer-tab ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#mobile-footer-tab ul li a i,
+#mobile-footer-tab ul li button i {
+  font-size: 1.7em;
 }
 
 /* responsive */
+header {
+  position: fixed;
+  width: 100%;
+  background: white;
+  z-index: 9;
+  transition: transform 0.3s;
+}
+header.scroll-down {
+  transform: translateY(-51px);
+}
+header.scroll-down .global-nav {
+  opacity: 0;
+}
 header nav {
   border-bottom: 1px solid black;
 }
@@ -438,6 +471,7 @@ header .global-nav {
   grid-template-columns: 50px auto 50px 50px;
   align-items: center;
   gap: 5px;
+  transition: opacity 0.3s;
 }
 header .global-nav > a {
   height: 40px;
@@ -459,12 +493,17 @@ header .global-nav .search button {
   transform: translateY(-50%);
 }
 header .local-nav {
-  padding: 10px 20px;
+  padding: 15px 20px;
 }
 header .local-nav ul {
   display: flex;
   justify-content: space-between;
 }
+header .local-nav ul li a {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
 /* responsive */
 footer {
   display: flex;

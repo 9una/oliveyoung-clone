@@ -1,4 +1,15 @@
 header {
+  position: fixed;
+  width: 100%;
+  background: white;
+  z-index: 9;
+  transition: transform 0.3s;
+  &.scroll-down {
+    transform: translateY(-51px);
+    .global-nav {
+      opacity: 0;
+    }
+  }
   nav {
     border-bottom: 1px solid black;
   }
@@ -8,6 +19,7 @@ header {
     grid-template-columns: 50px auto 50px 50px;
     align-items: center;
     gap: 5px;
+    transition: opacity 0.3s;
     & > a {
       height: 40px;
       background: #dbdbdb;
@@ -35,12 +47,14 @@ header {
     }
   }
   .local-nav {
-    padding: 10px 20px;
+    padding: 15px 20px;
     ul {
       display: flex;
       justify-content: space-between;
       li {
         a {
+          font-size: 1.1em;
+          font-weight: bold;
         }
       }
     }
