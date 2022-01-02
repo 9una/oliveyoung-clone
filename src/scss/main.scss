@@ -329,7 +329,7 @@
         display: flex;
         gap: 5px;
         li {
-          width: 380px;
+          width: 420px;
           height: 400px;
           background: pink;
           position: relative;
@@ -337,14 +337,105 @@
           }
           .event-text {
             position: absolute;
-            height: 50%;
+            height: 45%;
             top: 0;
+            left: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            p {
+              font-size: 1.32em;
+              line-height: 1.3;
+              margin-bottom: 5px;
+              font-weight: bold;
+            }
           }
           .event-item {
             position: absolute;
-            height: 50%;
-            bottom: 0;
+            width: 100%;
+            height: 55%;
+            top: 45%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 0 15px 8px;
             .list-item {
+              height: 50%;
+              background: white;
+              display: grid;
+              grid-template-columns: 80px auto auto;
+              gap: 10px;
+              border-radius: 5px;
+              padding: 0 10px;
+              align-items: center;
+              .img {
+                width: 80px;
+                height: 80px;
+                margin: auto 0;
+              }
+              .text {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                p {
+                  line-height: 1.3;
+                  letter-spacing: -0.035em;
+                  font-size: 0.95em;
+                  strong {
+                    color: red;
+                  }
+                  b {
+                  }
+                }
+                .item-name {
+                  margin-bottom: 5px;
+                  b {
+                    &::after {
+                      content: "";
+                      width: 1px;
+                      height: 10px;
+                      background: #999;
+                      display: inline-block;
+                      margin: 0 4px 0 8px;
+                    }
+                  }
+                }
+                .item-price {
+                  margin-bottom: auto;
+                  small {
+                    font-size: 0.85em;
+                    text-decoration: line-through;
+                    color: #999;
+                  }
+                }
+                .item-bn {
+                  span {
+                    font-size: 0.8em;
+                    padding: 3px 6px;
+                    border-radius: 3px;
+                    background: #efefef;
+                    font-weight: bold;
+                  }
+                  .today-bn {
+                    color: rgb(255, 103, 129);
+                  }
+                  .gift-bn {
+                    color: #888;
+                  }
+                }
+              }
+              .btn {
+                height: 80%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: flex-end;
+                padding-right: 8px;
+
+                button {
+                  color: #666;
+                }
+              }
             }
           }
         }
@@ -577,8 +668,11 @@
     }
   }
   .slide-type {
-    .cont-title {
-      margin-bottom: 0;
+    .wrapper:first-child {
+      padding-bottom: 20px;
+      .cont-title {
+        margin-bottom: 0;
+      }
     }
     .content {
       overflow: auto;
@@ -618,6 +712,27 @@
                   color: red;
                 }
               }
+              .item-bn {
+                margin: 10px 0 15px;
+                span {
+                  font-size: 0.8em;
+                  padding: 3px 6px;
+                  border-radius: 3px;
+                  background: #efefef;
+                  font-weight: bold;
+                }
+                .today-bn {
+                  color: rgb(255, 103, 129);
+                }
+                .gift-bn {
+                  color: #888;
+                }
+              }
+            }
+            .btn {
+              button {
+                margin-right: 15px;
+              }
             }
           }
         }
@@ -625,6 +740,26 @@
     }
   }
   .view-ranking {
+  }
+  .offline-store {
+    a {
+      border: 1px solid #999;
+      border-radius: 5px;
+      padding: 13px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i {
+        &:first-child {
+          margin-right: 10px;
+          color: #9bce26;
+        }
+        &:last-child {
+          margin-left: 10px;
+          color: #999;
+        }
+      }
+    }
   }
 }
 /**/
