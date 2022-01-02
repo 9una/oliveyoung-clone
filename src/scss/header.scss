@@ -14,20 +14,29 @@ header {
     border-bottom: 1px solid black;
   }
   .global-nav {
-    padding: 5px;
+    padding: 5px 10px;
     display: grid;
-    grid-template-columns: 50px auto 50px 50px;
+    grid-template-columns: 50px auto 30px 30px;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     transition: opacity 0.3s;
     & > a {
       height: 40px;
-      background: #dbdbdb;
       &.logo {
+        img {
+          height: 75%;
+          margin: 10% auto auto;
+          object-fit: contain;
+        }
       }
-      &.delivery {
-      }
+      &.delivery,
       &.cart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i {
+          font-size: 1.5em;
+        }
       }
     }
     .search {
@@ -35,8 +44,8 @@ header {
       input {
         width: 100%;
         border: none;
-        border-bottom: 1px solid black;
-        padding: 10px;
+        border-bottom: 2px solid #9bce26;
+        padding: 7px 0;
       }
       button {
         position: absolute;
