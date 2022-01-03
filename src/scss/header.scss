@@ -13,7 +13,7 @@ header {
   nav {
   }
   .global-nav {
-    padding: 5px 10px;
+    padding: 10px 10px 0;
     display: grid;
     grid-template-columns: 50px auto 30px 30px;
     align-items: center;
@@ -33,6 +33,7 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
+        color: #555;
         i {
           font-size: 1.5em;
         }
@@ -48,14 +49,16 @@ header {
       }
       button {
         position: absolute;
-        right: 0;
+        right: 5px;
         top: 50%;
         transform: translateY(-50%);
+        font-size: 1.3em;
+        color: #777;
       }
     }
   }
   .local-nav {
-    padding: 17px 20px 10px;
+    padding: 10px 20px 7px;
     border-bottom: $borderGrey;
     ul {
       display: flex;
@@ -76,7 +79,7 @@ header {
               height: 3px;
               background: rgb(255, 150, 167);
               display: block;
-              top: 10px;
+              top: 8px;
               position: relative;
             }
           }
