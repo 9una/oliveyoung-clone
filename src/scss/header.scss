@@ -4,83 +4,102 @@ header {
   background: white;
   z-index: 9;
   transition: transform 0.3s;
+  border-bottom: $borderGrey;
   &.scroll-down {
     transform: translateY(-51px);
-    .global-nav {
+    .header-inner {
       opacity: 0;
     }
   }
-  nav {
+  .header-top {
+    display: none;
   }
-  .global-nav {
-    padding: 10px 10px 0;
-    display: grid;
-    grid-template-columns: 50px auto 30px 30px;
-    align-items: center;
-    gap: 10px;
-    transition: opacity 0.3s;
-    & > a {
-      height: 40px;
-      &.logo {
-        img {
-          height: 75%;
-          margin: 10% auto auto;
-          object-fit: contain;
-        }
-      }
-      &.delivery,
-      &.cart {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #555;
-        i {
-          font-size: 1.5em;
-        }
-      }
-    }
-    .search {
-      position: relative;
-      input {
-        width: 100%;
-        border: none;
-        border-bottom: 2px solid #9bce26;
-        padding: 7px 0;
-      }
-      button {
-        position: absolute;
-        right: 5px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.3em;
-        color: #777;
-      }
+  & > nav,
+  & > div {
+    .wrapper {
+      max-width: 1020px;
+      margin: auto;
     }
   }
-  .local-nav {
-    padding: 10px 20px 7px;
-    border-bottom: $borderGrey;
-    ul {
-      display: flex;
-      justify-content: space-between;
+  .header-inner {
+    .wrapper {
+      padding: 10px 10px 0;
+      display: grid;
+      grid-template-columns: 50px auto 60px;
       align-items: center;
-      li {
-        a {
-          font-size: 1.1em;
-          font-weight: bold;
+      gap: 10px;
+      transition: opacity 0.3s;
+      a {
+        height: 40px;
+        &.logo {
+          background: url(https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png)
+            no-repeat 46% center;
+          background-size: cover;
+          font-size: 0;
         }
-        &.active {
+        &.delivery,
+        &.cart {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #555;
+          i {
+            font-size: 1.5em;
+          }
+        }
+      }
+      .search {
+        position: relative;
+        input {
+          width: 100%;
+          border: none;
+          border-bottom: 2px solid #9bce26;
+          padding: 7px 0;
+        }
+        button {
+          position: absolute;
+          right: 5px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 1.3em;
+          color: #777;
+        }
+      }
+      .inner-right {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        a {
+        }
+      }
+    }
+  }
+  .gnb {
+    .wrapper {
+      ul {
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        li {
           a {
-            font-size: 1.3em;
-            color: rgb(255, 150, 167);
-            &::after {
-              content: "";
-              width: 100%;
-              height: 3px;
-              background: rgb(255, 150, 167);
-              display: block;
-              top: 8px;
-              position: relative;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 10px 0 7px;
+          }
+          &.active {
+            a {
+              font-size: 1.3em;
+              color: rgb(255, 150, 167);
+              &::after {
+                content: "";
+                width: 100%;
+                height: 3px;
+                background: rgb(255, 150, 167);
+                display: block;
+                top: 8px;
+                position: relative;
+              }
             }
           }
         }
@@ -101,7 +120,101 @@ header {
 }
 
 @include desktop {
-}
-
-@include desktop-l {
+  header {
+    .header-top {
+      display: block;
+      .wrapper {
+        display: flex;
+        justify-content: flex-end;
+        ul {
+          display: flex;
+          padding: 10px;
+          li {
+            &:not(:first-child) {
+              a {
+                &::before {
+                  content: "";
+                  width: 1px;
+                  height: 10px;
+                  background: #cfcfcf;
+                  display: inline-block;
+                  margin: 0 8px;
+                }
+              }
+            }
+            a {
+              font-size: 0.85em;
+            }
+          }
+        }
+      }
+    }
+    .header-inner {
+      border-bottom: $borderGrey;
+      .wrapper {
+        padding: 15px 0;
+        grid-template-columns: 248px 320px 248px;
+        justify-content: space-between;
+        .search {
+          width: 100%;
+          max-width: 340px;
+          input {
+            border: 2px solid #9bce26;
+            border-radius: 30px;
+            padding: 10px 15px;
+          }
+          button {
+            right: 13px;
+          }
+        }
+        .inner-right {
+          a {
+            display: flex;
+            align-items: center;
+            &:not(:last-child) {
+              &::after {
+                content: "";
+                width: 1px;
+                height: 10px;
+                background: #cfcfcf;
+                display: inline-block;
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .gnb {
+      .wrapper {
+        display: flex;
+        .category-btn {
+          font-size: 1.1em;
+          font-weight: bold;
+          width: 170px;
+          border-left: $borderGrey;
+          border-right: $borderGrey;
+          position: relative;
+          &::before {
+            content: "\f0c9";
+            font-family: "Font Awesome\ 5 Free";
+            font-weight: bold;
+            position: absolute;
+            left: 18%;
+          }
+        }
+        ul {
+          width: calc(100% - 172px);
+          padding: 0;
+          justify-content: initial;
+          li {
+            margin-left: 5vw;
+            a {
+              padding: 15px 0;
+            }
+          }
+        }
+      }
+    }
+  }
 }

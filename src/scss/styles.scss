@@ -11,13 +11,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-html {
+html,
+body {
+  width: 100%;
   font-size: 13px;
   font-family: "Montserrat", "Roboto", sans-serif;
   scroll-behavior: smooth;
-}
-body {
-  width: 100%;
+  background: white;
 }
 img {
   width: 100%;
@@ -37,7 +37,4 @@ img {
 }
 
 @include desktop {
-}
-
-@include desktop-l {
 }

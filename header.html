@@ -1,19 +1,73 @@
-<nav class="global-nav">
-    <a href="index.html" class="logo"><img src="https://m.oliveyoung.co.kr/mc-static-root/image/comm/bi.png" alt="로고 이미지"/></a>
-    <div class="search">
-        <input type="text" placeholder="헤라 위시로켓 컬렉션 런칭✨" >
-        <button type="button"><i class="fas fa-search"></i></button>
+<div class="header-top">
+    <div class="wrapper">
+        <ul>
+            <li><a href="#">회원가입</a></li>
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">장바구니</a></li>
+            <li><a href="#">주문배송</a></li>
+            <li><a href="#">고객센터</a></li>
+            <li><a href="#">매장안내</a></li>
+            <li><a href="#">Global</a></li>
+        </ul>
     </div>
-    <a href="#" class="delivery"><i class="fas fa-bolt"></i></a>
-    <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
+</div>
+<div class="header-inner">
+    <div class="wrapper">
+        <a href="index.html" class="logo">로고</a>
+        <div class="search">
+            <input type="text" placeholder="헤라 위시로켓 컬렉션 런칭✨" >
+            <button type="button"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="inner-right">
+            <a href="#" class="delivery"><i class="fas fa-bolt"></i></a>
+            <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </div>
+</div>
+<nav class="gnb">
+    <div class="wrapper">
+        <ul>
+            <li class="active"><a href="index.html">홈</a></li>
+            <li><a href="#">오특</a></li>
+            <li><a href="#">신상</a></li>
+            <li><a href="#">랭킹</a></li>
+            <li><a href="#">기획전</a></li>
+            <li><a href="#">이벤트</a></li>
+        </ul>
+    </div>
 </nav>
-<nav class="local-nav">
-    <ul>
-        <li class="active"><a href="index.html">홈</a></li>
-        <li><a href="#">오특</a></li>
-        <li><a href="#">신상</a></li>
-        <li><a href="#">랭킹</a></li>
-        <li><a href="#">기획전</a></li>
-        <li><a href="#">이벤트</a></li>
-    </ul>
-</nav>
+
+<script type="text/javascript">
+    // desktop - .inner-right innerHTML change
+    const innerRight = header.querySelector('.inner-right');
+    const mobileInnerRight = innerRight.innerHTML;
+
+    const gnb = header.querySelector('.gnb .wrapper');
+    const mobileGnb = gnb.innerHTML;
+
+    function changeInnerRight(){
+        if(window.innerWidth >= 901){
+            innerRight.innerHTML = `<a href="#">오늘드림</a>
+            <a href="#">관심 매장소식</a>
+            <a href="#">최근 본 상품</a>`;
+            gnb.innerHTML = `<button type="button" onclick="lnbOpen()" class="category-btn">카테고리</button>
+            <ul>
+                <li><a href="#">오특</a></li>
+                <li><a href="#">신상</a></li>
+                <li><a href="#">랭킹</a></li>
+                <li><a href="#">기획전</a></li>
+                <li><a href="#">세일</a></li>
+                <li><a href="#">기프트카드</a></li>
+                <li><a href="#">멤버십/쿠폰</a></li>
+                <li><a href="#">이벤트</a></li>
+            </ul>`;
+        }else {
+            innerRight.innerHTML = mobileInnerRight;
+            gnb.innerHTML = mobileGnb;
+        }
+    }
+    changeInnerRight();
+    window.addEventListener('resize', changeInnerRight);
+    
+    
+</script>

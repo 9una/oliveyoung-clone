@@ -16,16 +16,16 @@
   @media (max-width: #{$breakpoint-tablet}) {
     @content;
   }
-} // ~ 768
+} // ~ 900
 
 @mixin desktop {
-  @media (max-width: #{$breakpoint-desktop}) {
+  @media (min-width: #{$breakpoint-tablet + 1px}) {
     @content;
   }
-} // ~ 1024
+} // 901 ~
 
-@mixin desktop-l {
-  @media (min-width: #{$breakpoint-desktop + 1}) {
-    @content;
-  }
-} // 1025 ~
+// @mixin desktop-l {
+//   @media (min-width: #{$breakpoint-desktop + 1}) {
+//     @content;
+//   }
+// } // 1025 ~

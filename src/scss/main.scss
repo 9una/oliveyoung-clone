@@ -32,6 +32,7 @@
       height: 40px;
       padding: 10px;
       border: 1px solid black;
+      color: black;
       border-radius: 5px;
       display: flex;
       justify-content: center;
@@ -50,8 +51,6 @@
     border-bottom: $borderGreyThick;
   }
   main {
-    min-height: 350px;
-    background: chartreuse;
     position: relative;
     .slide {
       overflow: hidden;
@@ -145,7 +144,7 @@
   .banner-type1 {
     display: flex;
     position: relative;
-    height: 76px;
+    height: 16vw;
     overflow: hidden;
     .banner-item {
       width: 100%;
@@ -156,13 +155,13 @@
       }
       a {
         width: 80vw;
-        height: 76px;
+        height: 16vw;
         position: relative;
         overflow: hidden;
         .banner-wrap {
           position: absolute;
           width: 80vw;
-          height: 76px;
+          height: 16vw;
           top: 0;
           img {
           }
@@ -279,7 +278,7 @@
     .content {
       .list-item {
         display: grid;
-        grid-template-columns: 80px auto auto;
+        grid-template-columns: 80px auto 20px;
         gap: 10px;
         .img {
           width: 80px;
@@ -347,6 +346,8 @@
           display: flex;
           flex-direction: column;
           justify-content: space-around;
+          align-items: flex-end;
+          padding-right: 5px;
           button {
             color: #666;
           }
@@ -511,6 +512,7 @@
           background: white;
           border-radius: 30px;
           font-size: 0.9em;
+          color: #666;
           &.active {
             background: rgb(255, 123, 113);
             color: white;
@@ -530,7 +532,7 @@
         display: flex;
         gap: 5px;
         li {
-          width: 420px;
+          width: 85vw;
           height: 400px;
           background: pink;
           position: relative;
@@ -773,7 +775,9 @@
       display: flex;
       gap: 25px;
       .brand-list {
-        width: 110px;
+        min-width: 95px;
+        width: 100%;
+        max-width: 110px;
         ul {
           display: flex;
           flex-direction: column;
@@ -781,10 +785,11 @@
           li {
             button {
               width: 100%;
-              padding: 7px 10px;
+              padding: 7px 0;
               border: $borderGrey;
               border-radius: 30px;
               font-size: 0.9em;
+              color: #666;
             }
             &.active {
               button {
@@ -808,6 +813,7 @@
               &.brand-header {
                 grid-column: span 2;
                 width: 100%;
+                height: 210px;
                 position: relative;
                 background: black;
                 img {
@@ -1041,16 +1047,20 @@
     background: white;
     box-shadow: 0 -8px 10px rgba(0, 0, 0, 0.06);
     height: 50px;
-    padding: 0 40px;
     display: flex;
     justify-content: space-between;
     transition: opacity 0.3s;
     li {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       a,
       button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         i {
           color: #9f9f9f;
           font-size: 1.7em;
@@ -1220,10 +1230,40 @@
 }
 
 @include tablet {
+  // ~ 900
 }
 
 @include desktop {
-}
-
-@include desktop-l {
+  // 901 ~
+  #container {
+    padding-top: 148px;
+    .content-nav {
+      display: none;
+    }
+    .banner-type1 {
+      margin: 50px 0;
+      height: initial;
+      gap: 5px;
+      .banner-item {
+        position: relative;
+        width: 50%;
+        a {
+          width: 100%;
+          height: auto;
+          box-shadow: none !important;
+          animation: none !important;
+          .banner-wrap {
+            width: 100%;
+            height: auto;
+            img {
+            }
+          }
+        }
+        button {
+          display: none;
+          animation: none !important;
+        }
+      }
+    }
+  }
 }
