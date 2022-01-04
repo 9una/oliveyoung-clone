@@ -147,13 +147,26 @@
     position: relative;
     height: 76px;
     overflow: hidden;
-    & > div {
-      width: 80%;
-      height: 100%;
+    .banner-item {
+      width: 100%;
       position: absolute;
       z-index: 1;
       &.index-first {
         z-index: 2;
+      }
+      a {
+        width: 80vw;
+        height: 76px;
+        position: relative;
+        overflow: hidden;
+        .banner-wrap {
+          position: absolute;
+          width: 80vw;
+          height: 76px;
+          top: 0;
+          img {
+          }
+        }
       }
       button {
         position: absolute;
@@ -173,25 +186,80 @@
         }
       }
       &:first-child {
-        left: 0;
-        background: chocolate;
-        box-shadow: 10px 0 10px rgba(0, 0, 0, 0.3);
+        a {
+          animation: slideRight 2s infinite;
+          box-shadow: 20px 0 15px rgba(0, 0, 0, 0.4);
+          .banner-wrap {
+            left: 0;
+          }
+        }
         button {
-          right: -12px;
+          left: calc(80vw - 12px);
+          animation: slideRightBtn 2s infinite;
           i {
             margin-left: 2px;
           }
         }
       }
       &:last-child {
-        right: 0;
-        background: cornflowerblue;
-        box-shadow: -10px 0 10px rgba(0, 0, 0, 0.3);
+        a {
+          margin-left: auto;
+          animation: slideLeft 2s infinite;
+          box-shadow: -20px 0 15px rgba(0, 0, 0, 0.4);
+          .banner-wrap {
+            right: 0;
+          }
+        }
         button {
-          left: -12px;
+          right: calc(80vw - 12px);
+          animation: slideLeftBtn 2s infinite;
           i {
             margin-right: 2px;
           }
+        }
+      }
+      @keyframes slideRight {
+        0% {
+          width: 80vw;
+        }
+        50% {
+          width: 78vw;
+        }
+        100% {
+          width: 80vw;
+        }
+      }
+      @keyframes slideRightBtn {
+        0% {
+          left: calc(80vw - 12px);
+        }
+        50% {
+          left: calc(78vw - 12px);
+        }
+        100% {
+          left: calc(80vw - 12px);
+        }
+      }
+      @keyframes slideLeft {
+        0% {
+          width: 80vw;
+        }
+        50% {
+          width: 78vw;
+        }
+        100% {
+          width: 80vw;
+        }
+      }
+      @keyframes slideLeftBtn {
+        0% {
+          right: calc(80vw - 12px);
+        }
+        50% {
+          right: calc(78vw - 12px);
+        }
+        100% {
+          right: calc(80vw - 12px);
         }
       }
     }
@@ -327,6 +395,7 @@
             border: $borderGrey;
             text-align: left;
             color: #666;
+            border-radius: 3px;
             span {
               font-size: 0.9em;
               letter-spacing: -0.035em;
@@ -762,7 +831,7 @@
                         color: white;
                         position: absolute;
                         font-size: 0.6em;
-                        top: 1px;
+                        top: 3px;
                         left: 5px;
                       }
                     }
@@ -828,7 +897,7 @@
       ul {
         display: flex;
         width: max-content;
-        gap: 6px;
+        gap: 8px;
         margin: 0 20px;
         li {
           width: 140px;
@@ -963,6 +1032,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    &.invisible {
+      display: none;
+    }
   }
   ul {
     width: 100%;

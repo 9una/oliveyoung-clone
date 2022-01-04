@@ -5,7 +5,6 @@ $(document).ready(function(){
 });
 
 
-
 //mobile-scroll-header.fixed
 const header = document.getElementById('header');
 const mobileFooterTab = document.getElementById('mobile-footer-tab');
@@ -27,14 +26,14 @@ function scrollFunc() {
 window.addEventListener('scroll', scrollFunc);
 
 //banner-type1
-const banner = document.querySelectorAll('.banner-type1 > div');
-for(let i = 0; i < banner.length; i++){
-    banner[i].addEventListener('click', ()=>{
+const bannerTypeOne = document.querySelectorAll('.banner-type1 .banner-item');
+for(let i = 0; i < bannerTypeOne.length; i++){
+    bannerTypeOne[i].addEventListener('click', ()=>{
         let j = 0;
-        while(j < banner.length){
-            banner[j++].classList.remove('index-first')
+        while(j < bannerTypeOne.length){
+            bannerTypeOne[j++].classList.add('index-first')
         }
-        banner[i].classList.add('index-first');
+        bannerTypeOne[i].classList.remove('index-first');
     });
 }
 
@@ -66,12 +65,21 @@ for(let i = 0; i < mobileFootTab.length; i++){
 
 function mobileLocalNav(){
     const mobileLnb = document.getElementById('mobileLnb');
+    const goTop = document.querySelector('.go-top');
+
+    goTop.classList.toggle('invisible');
     mobileLnb.classList.toggle('active');
     mobileFootTab[0].classList.toggle('active');
     if(mobileLnb.classList.contains('active')){
         document.querySelector('body').style.overflow = "hidden";
     }
     if(mobileLnb.classList.contains('active') == false){
-        console.log('hi');
+        document.querySelector('body').style.overflow = "";
     }
+}
+
+//footer
+function infoOpen(){
+    const footerInfo = document.querySelector('footer .info-box');
+    footerInfo.classList.toggle('active');
 }

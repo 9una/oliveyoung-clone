@@ -154,16 +154,27 @@
   height: 76px;
   overflow: hidden;
 }
-#container .banner-type1 > div {
-  width: 80%;
-  height: 100%;
+#container .banner-type1 .banner-item {
+  width: 100%;
   position: absolute;
   z-index: 1;
 }
-#container .banner-type1 > div.index-first {
+#container .banner-type1 .banner-item.index-first {
   z-index: 2;
 }
-#container .banner-type1 > div button {
+#container .banner-type1 .banner-item a {
+  width: 80vw;
+  height: 76px;
+  position: relative;
+  overflow: hidden;
+}
+#container .banner-type1 .banner-item a .banner-wrap {
+  position: absolute;
+  width: 80vw;
+  height: 76px;
+  top: 0;
+}
+#container .banner-type1 .banner-item button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -176,31 +187,82 @@
   justify-content: center;
   align-items: center;
 }
-#container .banner-type1 > div button i {
+#container .banner-type1 .banner-item button i {
   font-size: 1.1em;
   color: #777;
 }
-#container .banner-type1 > div:first-child {
+#container .banner-type1 .banner-item:first-child a {
+  animation: slideRight 2s infinite;
+  box-shadow: 20px 0 15px rgba(0, 0, 0, 0.4);
+}
+#container .banner-type1 .banner-item:first-child a .banner-wrap {
   left: 0;
-  background: chocolate;
-  box-shadow: 10px 0 10px rgba(0, 0, 0, 0.3);
 }
-#container .banner-type1 > div:first-child button {
-  right: -12px;
+#container .banner-type1 .banner-item:first-child button {
+  left: calc(80vw - 12px);
+  animation: slideRightBtn 2s infinite;
 }
-#container .banner-type1 > div:first-child button i {
+#container .banner-type1 .banner-item:first-child button i {
   margin-left: 2px;
 }
-#container .banner-type1 > div:last-child {
+#container .banner-type1 .banner-item:last-child a {
+  margin-left: auto;
+  animation: slideLeft 2s infinite;
+  box-shadow: -20px 0 15px rgba(0, 0, 0, 0.4);
+}
+#container .banner-type1 .banner-item:last-child a .banner-wrap {
   right: 0;
-  background: cornflowerblue;
-  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.3);
 }
-#container .banner-type1 > div:last-child button {
-  left: -12px;
+#container .banner-type1 .banner-item:last-child button {
+  right: calc(80vw - 12px);
+  animation: slideLeftBtn 2s infinite;
 }
-#container .banner-type1 > div:last-child button i {
+#container .banner-type1 .banner-item:last-child button i {
   margin-right: 2px;
+}
+@keyframes slideRight {
+  0% {
+    width: 80vw;
+  }
+  50% {
+    width: 78vw;
+  }
+  100% {
+    width: 80vw;
+  }
+}
+@keyframes slideRightBtn {
+  0% {
+    left: calc(80vw - 12px);
+  }
+  50% {
+    left: calc(78vw - 12px);
+  }
+  100% {
+    left: calc(80vw - 12px);
+  }
+}
+@keyframes slideLeft {
+  0% {
+    width: 80vw;
+  }
+  50% {
+    width: 78vw;
+  }
+  100% {
+    width: 80vw;
+  }
+}
+@keyframes slideLeftBtn {
+  0% {
+    right: calc(80vw - 12px);
+  }
+  50% {
+    right: calc(78vw - 12px);
+  }
+  100% {
+    right: calc(80vw - 12px);
+  }
 }
 #container .item-type .content {
   margin-bottom: 20px;
@@ -327,6 +389,7 @@
   border: 1px solid #cfcfcf;
   text-align: left;
   color: #666;
+  border-radius: 3px;
 }
 #container .list-type .content ul li > button span {
   font-size: 0.9em;
@@ -694,7 +757,7 @@
   color: white;
   position: absolute;
   font-size: 0.6em;
-  top: 1px;
+  top: 3px;
   left: 5px;
 }
 #container .brand .content .brand-item ul li a.brand-header .brand-text p .heart-num {
@@ -746,7 +809,7 @@
 #container .slide-type .content ul {
   display: flex;
   width: max-content;
-  gap: 6px;
+  gap: 8px;
   margin: 0 20px;
 }
 #container .slide-type .content ul li {
@@ -862,6 +925,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#mobile-footer-tab .go-top.invisible {
+  display: none;
 }
 #mobile-footer-tab ul {
   width: 100%;
@@ -1128,6 +1194,9 @@ footer .footer-top a {
   padding: 10px;
   width: 100%;
   text-align: center;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #666;
 }
 footer .footer-mid {
   display: flex;
@@ -1139,20 +1208,25 @@ footer .footer-mid .business-info {
   display: flex;
   flex-direction: column;
 }
-footer .footer-mid .business-info span {
-  padding: 15px;
+footer .footer-mid .business-info button {
+  padding: 15px 15px 0;
   font-size: 0.9em;
-  color: #555;
+  color: #666;
   font-weight: bold;
 }
 footer .footer-mid .business-info .info-box {
+  display: none;
   background: #eaeaea;
   padding: 15px;
+  margin-top: 15px;
   font-size: 0.85em;
   color: #777;
 }
 footer .footer-mid .business-info .info-box p {
   text-align: center;
+}
+footer .footer-mid .business-info .info-box.active {
+  display: block;
 }
 footer .footer-mid .cs-btn {
   display: grid;
@@ -1167,7 +1241,7 @@ footer .footer-mid .cs-btn a {
   justify-content: center;
   font-size: 0.9em;
   line-height: 1.3;
-  color: #888;
+  color: #555;
 }
 footer .footer-mid .cs-btn a:not(:first-child) {
   border: 1px solid #cfcfcf;
@@ -1220,7 +1294,7 @@ footer .footer-bottom .sns ul li a {
   height: 40px;
   border-radius: 50%;
   border: 1px solid #999;
-  color: #888;
+  color: #555;
   font-size: 1.6em;
   display: flex;
   justify-content: center;
