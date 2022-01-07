@@ -121,6 +121,7 @@ header {
 
 @include desktop {
   header {
+    position: relative;
     .header-top {
       display: block;
       .wrapper {
@@ -208,7 +209,7 @@ header {
           padding: 0;
           justify-content: initial;
           li {
-            margin-left: 5vw;
+            margin-left: auto;
             a {
               padding: 15px 0;
             }

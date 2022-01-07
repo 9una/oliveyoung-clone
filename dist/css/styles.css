@@ -576,18 +576,8 @@
   text-decoration: line-through;
   color: #999;
 }
-#container .popular-event .content ul li .event-item .list-item .text .item-bn span {
-  font-size: 0.8em;
-  padding: 3px 6px;
-  border-radius: 3px;
-  background: #efefef;
-  font-weight: bold;
-}
-#container .popular-event .content ul li .event-item .list-item .text .item-bn .today-bn {
-  color: #ff6781;
-}
-#container .popular-event .content ul li .event-item .list-item .text .item-bn .gift-bn {
-  color: #888;
+#container .popular-event .content ul li .event-item .list-item .text .item-bn {
+  display: none;
 }
 #container .popular-event .content ul li .event-item .list-item .btn {
   height: 80%;
@@ -1108,33 +1098,364 @@
 /* responsive */
 @media (min-width: 901px) {
   #container {
-    padding-top: 148px;
+    padding-top: 0;
+  }
+  #container > div, #container > section {
+    width: 100%;
+    max-width: 1020px;
+    margin: auto;
+  }
+  #container > div .cont-title, #container > section .cont-title {
+    position: relative;
+    padding: 30px 0 20px;
+    margin-bottom: 30px;
+  }
+  #container > div .cont-title h3, #container > section .cont-title h3 {
+    font-size: 1.8em;
+    margin: auto;
+  }
+  #container > div .more-btn, #container > section .more-btn {
+    width: 30%;
+    margin: auto;
+  }
+  #container .item,
+#container .banner,
+#container .brand {
+    border-bottom: none;
   }
   #container .content-nav {
     display: none;
   }
   #container .banner-type1 {
-    margin: 50px 0;
     height: initial;
     gap: 5px;
+    border-bottom: none;
+    margin: 50px auto;
   }
   #container .banner-type1 .banner-item {
     position: relative;
     width: 50%;
   }
+  #container .banner-type1 .banner-item a,
+#container .banner-type1 .banner-item button {
+    animation: none !important;
+    box-shadow: none !important;
+  }
   #container .banner-type1 .banner-item a {
     width: 100%;
-    height: auto;
-    box-shadow: none !important;
-    animation: none !important;
+    height: initial;
   }
   #container .banner-type1 .banner-item a .banner-wrap {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: initial !important;
+    position: relative;
   }
   #container .banner-type1 .banner-item button {
     display: none;
-    animation: none !important;
+  }
+  #container .item-type .content .list-item .text .item-name,
+#container .list-type .content .list-item .text .item-name {
+    font-size: 1.05em;
+    line-height: 1.4;
+    margin-bottom: 0;
+  }
+  #container .item-type .content .list-item .text .item-price,
+#container .list-type .content .list-item .text .item-price {
+    padding: 8px 0;
+    display: flex;
+  }
+  #container .item-type .content .list-item .text .item-price strong,
+#container .list-type .content .list-item .text .item-price strong {
+    display: none;
+  }
+  #container .item-type .content .list-item .text .item-price span,
+#container .list-type .content .list-item .text .item-price span {
+    order: 2;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #f01d1d;
+  }
+  #container .item-type .content .list-item .text .item-price small,
+#container .list-type .content .list-item .text .item-price small {
+    order: 1;
+    font-size: 1em;
+  }
+  #container .item-type .content .list-item .text .item-bn span,
+#container .list-type .content .list-item .text .item-bn span {
+    color: white !important;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 3px 8px;
+  }
+  #container .item-type .content .list-item .text .item-bn .today-bn,
+#container .list-type .content .list-item .text .item-bn .today-bn {
+    background: #f374b7;
+  }
+  #container .item-type .content .list-item .text .item-bn .gift-bn,
+#container .list-type .content .list-item .text .item-bn .gift-bn {
+    background: #9bce26;
+  }
+  #container .item-type.recommend_2 {
+    display: none;
+  }
+  #container .item-type .cont-title h3 {
+    margin: 0 auto 0 0;
+  }
+  #container .item-type .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  #container .item-type .content .list-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  #container .item-type .content .list-item .img {
+    width: 100%;
+    padding-bottom: 100%;
+  }
+  #container .item-type .content .list-item .text .item-name {
+    height: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  #container .item-type .content .list-item .text .item-price {
+    align-items: center;
+    gap: 8px;
+  }
+  #container .item-type .content .list-item .text .item-price small {
+    margin-top: 5px;
+  }
+  #container .item-type .content .list-item .btn {
+    position: absolute;
+    bottom: 24px;
+    right: 0;
+  }
+  #container .item-type .content .list-item .btn .wish {
+    display: none;
+  }
+  #container .item-type .content .list-item .btn .cart {
+    font-size: 1.4em;
+  }
+  #container .list-type.ranking {
+    display: none;
+  }
+  #container .list-type .cont-title {
+    border-bottom: 1px solid #cfcfcf;
+  }
+  #container .list-type .cont-title a {
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+  }
+  #container .list-type .cont-title small {
+    display: none;
+  }
+  #container .list-type .content {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #cfcfcf;
+  }
+  #container .list-type .content ul {
+    position: relative;
+  }
+  #container .list-type .content ul li {
+    width: calc(50% - 20px);
+    margin-left: auto;
+  }
+  #container .list-type .content ul li:not(:first-child) {
+    margin-top: 3px;
+  }
+  #container .list-type .content ul li button {
+    border-color: white;
+    padding: 10px 20px;
+  }
+  #container .list-type .content ul li button span {
+    font-size: 1em;
+  }
+  #container .list-type .content ul li .list-item {
+    position: absolute;
+    width: calc(50% - 20px);
+    left: 0;
+    top: 0;
+    gap: 20px;
+  }
+  #container .list-type .content ul li .list-item .img {
+    max-width: 175px;
+    width: 100%;
+    padding-bottom: 175px;
+  }
+  #container .list-type .content ul li .list-item .text .item-price {
+    margin: auto 0 0;
+    flex-direction: column;
+  }
+  #container .list-type .content ul li .list-item .text .item-price span {
+    padding-top: 10px;
+  }
+  #container .list-type .content ul li .list-item .btn {
+    display: none;
+  }
+  #container .list-type .content ul li.active button {
+    border-radius: 5px;
+  }
+  #container .list-type .content ul li.active button span {
+    font-weight: bold;
+  }
+  #container .list-type .content ul li.active .list-item {
+    display: flex;
+  }
+  #container .banner-box {
+    display: none;
+  }
+  #container .banner-type2 .cont-title {
+    padding-bottom: 0;
+  }
+  #container .banner-type2 .content {
+    padding-bottom: 30px;
+  }
+  #container .banner-type2 .content ul {
+    display: flex;
+    gap: 20px;
+  }
+  #container .banner-type2.keyword .content a .img img {
+    border-radius: 10px;
+  }
+  #container .banner-type2.keyword .content a .text {
+    padding: 15px 0;
+  }
+  #container .banner-type2.keyword .content a .text p {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+  }
+  #container .banner-type2.keyword .content a .text span {
+    font-size: 1.1em;
+  }
+  #container .popular-event .content {
+    border-bottom: 1px solid blue;
+    padding-bottom: 50px;
+  }
+  #container .popular-event .content ul {
+    width: 400%;
+    gap: 0;
+  }
+  #container .popular-event .content ul li {
+    width: calc(50% - 10px);
+    height: 550px;
+    position: relative;
+  }
+  #container .popular-event .content ul li:nth-child(odd) {
+    margin-right: 10px;
+  }
+  #container .popular-event .content ul li:nth-child(odd)::after {
+    content: "";
+    width: 1px;
+    height: 100%;
+    background: black;
+    display: block;
+    right: -10px;
+    top: 0;
+    position: absolute;
+  }
+  #container .popular-event .content ul li:nth-child(even) {
+    margin-left: 10px;
+  }
+  #container .popular-event .content ul li > img {
+    object-fit: contain;
+    height: initial;
+  }
+  #container .popular-event .content ul li .event-text p {
+    font-size: 1.45em;
+    margin-bottom: 15px;
+  }
+  #container .popular-event .content ul li .event-text span {
+    font-size: 1.1em;
+  }
+  #container .popular-event .content ul li .event-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: initial;
+  }
+  #container .popular-event .content ul li .event-item .list-item {
+    display: flex;
+    flex-direction: column;
+    height: initial;
+    padding: 10px;
+  }
+  #container .popular-event .content ul li .event-item .list-item .img {
+    width: 100%;
+    height: 100%;
+  }
+  #container .popular-event .content ul li .event-item .list-item .text .item-name {
+    font-size: 1.05em;
+    line-height: 1.4;
+    margin-bottom: 0;
+  }
+  #container .popular-event .content ul li .event-item .list-item .text .item-price {
+    padding: 8px 0;
+    display: flex;
+  }
+  #container .popular-event .content ul li .event-item .list-item .text .item-price strong {
+    display: none;
+  }
+  #container .popular-event .content ul li .event-item .list-item .text .item-price span {
+    order: 2;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #f01d1d;
+  }
+  #container .popular-event .content ul li .event-item .list-item .text .item-price small {
+    order: 1;
+    font-size: 1em;
+  }
+  #container .popular-event .content ul li .event-item .list-item .text .item-bn {
+    display: block;
+  }
+  #container .popular-event .content ul li .event-item .list-item .text .item-bn span {
+    color: white !important;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 3px 8px;
+  }
+  #container .popular-event .content ul li .event-item .list-item .text .item-bn .today-bn {
+    background: #f374b7;
+  }
+  #container .popular-event .content ul li .event-item .list-item .text .item-bn .gift-bn {
+    background: #9bce26;
+  }
+  #container .popular-event .content ul li .event-item .list-item .btn {
+    display: none;
+  }
+  #container .banner-type3 {
+    background: beige;
+    max-width: initial;
+  }
+  #container .banner-type3 .wrapper {
+    background: none;
+    max-width: 1020px;
+    margin: auto;
+  }
+  #container .banner-type3 .wrapper .content {
+    overflow: auto;
+  }
+  #container .banner-type3 .wrapper .content ul {
+    display: flex;
+    gap: 30px;
+    width: 200%;
+  }
+  #container .banner-type4 .content ul {
+    width: 200%;
+    padding: 0;
+  }
+  #container .banner-type4 .content ul li a,
+#container .banner-type4 .content ul li.active a {
+    width: initial;
+    height: initial;
   }
 }
 header {
@@ -1232,6 +1553,9 @@ header .gnb .wrapper ul li.active a::after {
 
 /* responsive */
 @media (min-width: 901px) {
+  header {
+    position: relative;
+  }
   header .header-top {
     display: block;
   }
@@ -1310,7 +1634,7 @@ header .gnb .wrapper ul li.active a::after {
     justify-content: initial;
   }
   header .gnb .wrapper ul li {
-    margin-left: 5vw;
+    margin-left: auto;
   }
   header .gnb .wrapper ul li a {
     padding: 15px 0;
