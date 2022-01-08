@@ -1105,13 +1105,16 @@
     max-width: 1020px;
     margin: auto;
   }
+  #container > div .wrapper, #container > section .wrapper {
+    padding: 20px 0 30px;
+  }
   #container > div .cont-title, #container > section .cont-title {
     position: relative;
-    padding: 30px 0 20px;
+    padding: 0 0 20px;
     margin-bottom: 30px;
   }
   #container > div .cont-title h3, #container > section .cont-title h3 {
-    font-size: 1.8em;
+    font-size: 1.9em;
     margin: auto;
   }
   #container > div .more-btn, #container > section .more-btn {
@@ -1130,7 +1133,7 @@
     height: initial;
     gap: 5px;
     border-bottom: none;
-    margin: 50px auto;
+    margin: 50px auto 10px;
   }
   #container .banner-type1 .banner-item {
     position: relative;
@@ -1196,8 +1199,14 @@
 #container .list-type .content .list-item .text .item-bn .gift-bn {
     background: #9bce26;
   }
+  #container .item-type.recommend_1 .cont-title {
+    padding-top: 30px;
+  }
   #container .item-type.recommend_2 {
     display: none;
+  }
+  #container .item-type .cont-title {
+    margin-bottom: 0;
   }
   #container .item-type .cont-title h3 {
     margin: 0 auto 0 0;
@@ -1335,18 +1344,27 @@
   #container .banner-type2.keyword .content a .text span {
     font-size: 1.1em;
   }
+  #container .popular-event .wrapper:first-child .cont-title {
+    margin: 0;
+    padding: 0;
+  }
+  #container .popular-event .wrapper:first-child .pagination {
+    display: none;
+  }
   #container .popular-event .content {
-    border-bottom: 1px solid blue;
     padding-bottom: 50px;
+    height: 700px;
   }
   #container .popular-event .content ul {
     width: 400%;
     gap: 0;
+    height: 100%;
   }
   #container .popular-event .content ul li {
     width: calc(50% - 10px);
-    height: 550px;
+    height: 100%;
     position: relative;
+    background: none;
   }
   #container .popular-event .content ul li:nth-child(odd) {
     margin-right: 10px;
@@ -1365,8 +1383,12 @@
     margin-left: 10px;
   }
   #container .popular-event .content ul li > img {
-    object-fit: contain;
-    height: initial;
+    object-position: top;
+    height: 310px;
+  }
+  #container .popular-event .content ul li .event-text {
+    height: 40%;
+    left: 30px;
   }
   #container .popular-event .content ul li .event-text p {
     font-size: 1.45em;
@@ -1376,6 +1398,7 @@
     font-size: 1.1em;
   }
   #container .popular-event .content ul li .event-item {
+    top: 40%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     height: initial;
@@ -1390,14 +1413,28 @@
     width: 100%;
     height: 100%;
   }
+  #container .popular-event .content ul li .event-item .list-item .text .item-brand {
+    font-weight: 900;
+    text-align: center;
+    padding: 15px 0 10px;
+  }
   #container .popular-event .content ul li .event-item .list-item .text .item-name {
     font-size: 1.05em;
     line-height: 1.4;
+    text-align: center;
     margin-bottom: 0;
+    height: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
   #container .popular-event .content ul li .event-item .list-item .text .item-price {
-    padding: 8px 0;
+    padding-bottom: 8px;
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
   #container .popular-event .content ul li .event-item .list-item .text .item-price strong {
     display: none;
@@ -1411,9 +1448,11 @@
   #container .popular-event .content ul li .event-item .list-item .text .item-price small {
     order: 1;
     font-size: 1em;
+    margin-right: 8px;
   }
   #container .popular-event .content ul li .event-item .list-item .text .item-bn {
     display: block;
+    text-align: center;
   }
   #container .popular-event .content ul li .event-item .list-item .text .item-bn span {
     color: white !important;
@@ -1440,6 +1479,10 @@
     max-width: 1020px;
     margin: auto;
   }
+  #container .banner-type3 .wrapper .cont-title {
+    padding-top: 25px;
+    margin-bottom: 20px;
+  }
   #container .banner-type3 .wrapper .content {
     overflow: auto;
   }
@@ -1448,14 +1491,103 @@
     gap: 30px;
     width: 200%;
   }
+  #container .banner-type3 .wrapper .content ul li a {
+    position: relative;
+  }
+  #container .banner-type3 .wrapper .content ul li a .img span {
+    display: none;
+  }
+  #container .banner-type3 .wrapper .content ul li a .text {
+    background: white;
+    position: relative;
+    padding: 20px 30px;
+    display: inline-block;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  #container .banner-type3 .wrapper .content ul li a .text p {
+    font-size: 1.5em;
+    letter-spacing: -0.05em;
+    margin-bottom: 3px;
+  }
+  #container .banner-type3 .wrapper .content ul li a .text span {
+    font-size: 1.15em;
+    letter-spacing: -0.05em;
+  }
+  #container .banner-type4 .wrapper:first-child {
+    padding-bottom: 0;
+  }
+  #container .banner-type4 .wrapper:first-child .cont-title {
+    padding-top: 30px;
+  }
   #container .banner-type4 .content ul {
     width: 200%;
+    height: 420px;
     padding: 0;
+  }
+  #container .banner-type4 .content ul li,
+#container .banner-type4 .content ul li.active {
+    height: 100%;
   }
   #container .banner-type4 .content ul li a,
 #container .banner-type4 .content ul li.active a {
     width: initial;
-    height: initial;
+    height: 100%;
+  }
+  #container .banner-type4 .content ul li a .text,
+#container .banner-type4 .content ul li.active a .text {
+    padding: 28px 25px 0;
+  }
+  #container .banner-type4 .content ul li a .text h3,
+#container .banner-type4 .content ul li.active a .text h3 {
+    font-size: 1.6em;
+    margin-bottom: 8px;
+  }
+  #container .banner-type4 .content ul li a .text p,
+#container .banner-type4 .content ul li.active a .text p {
+    font-size: 1.1em;
+    letter-spacing: -0.03em;
+  }
+  #container .brand .content {
+    flex-direction: column;
+  }
+  #container .brand .content .brand-list {
+    max-width: initial;
+    overflow: auto;
+  }
+  #container .brand .content .brand-list ul {
+    width: 200%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 0;
+    border: 1px solid #cfcfcf;
+  }
+  #container .brand .content .brand-list ul li:not(:last-child) {
+    border-right: 1px solid #cfcfcf;
+  }
+  #container .brand .content .brand-list ul li button {
+    border: none;
+    border-radius: 0;
+    padding: 15px;
+    font-size: 1.1em;
+  }
+  #container .brand .content .brand-list ul li.active button {
+    background: none;
+    color: initial;
+  }
+  #container .brand .content .brand-item {
+    width: 100%;
+  }
+  #container .brand .content .brand-item ul li .brand-header {
+    order: 2;
+  }
+  #container .brand .content .brand-item ul li .brand-item:nth-child(2) {
+    order: 1;
+  }
+  #container .brand .content .brand-item ul li .brand-item:nth-child(3) {
+    order: 1;
   }
 }
 header {
