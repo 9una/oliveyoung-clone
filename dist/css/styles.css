@@ -1129,6 +1129,80 @@
   #container .content-nav {
     display: none;
   }
+  #container .main-slide {
+    width: 100%;
+    position: relative;
+  }
+  #container .main-slide .slide ul {
+    width: 300vw;
+  }
+  #container .main-slide .slide ul li {
+    width: 100vw;
+  }
+  #container .main-slide .slide ul li a {
+    width: 100%;
+    max-width: 1020px;
+    margin: auto;
+    text-align: right;
+    background: #e2dbbf;
+  }
+  #container .main-slide .slide ul li a img {
+    width: initial;
+    height: 450px;
+  }
+  #container .main-slide .slide ul li a .text {
+    left: 220px;
+    text-align: left;
+    top: 100px;
+  }
+  #container .main-slide .slide ul li a .text p {
+    font-size: 3.4em;
+    font-weight: normal;
+  }
+  #container .main-slide .slide ul li a .text span {
+    font-size: 1.5em;
+  }
+  #container .main-slide .slide ul li:first-child {
+    background: #e2dbbf;
+  }
+  #container .main-slide .slide ul li:nth-child(2) {
+    background: pink;
+  }
+  #container .main-slide .slide ul li:nth-child(3) {
+    background: #c484c4;
+  }
+  #container .main-slide .pagination {
+    left: calc(50% - 510px + 170px + 50px);
+    bottom: 30px;
+  }
+  #container .main-slide .slide-category {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: calc(50% - 510px);
+  }
+  #container .main-slide .slide-category ul {
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(15, 1fr);
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.35);
+    padding-top: 15px;
+  }
+  #container .main-slide .slide-category ul li.awards {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  #container .main-slide .slide-category ul li a {
+    width: 170px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.05em;
+    letter-spacing: -0.04em;
+  }
   #container .banner-type1 {
     height: initial;
     gap: 5px;
@@ -1257,6 +1331,7 @@
   }
   #container .list-type .cont-title {
     border-bottom: 1px solid #cfcfcf;
+    margin-bottom: 25px;
   }
   #container .list-type .cont-title a {
     position: absolute;
@@ -1291,7 +1366,8 @@
     position: absolute;
     width: calc(50% - 20px);
     left: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     gap: 20px;
   }
   #container .list-type .content ul li .list-item .img {
@@ -1317,6 +1393,7 @@
   }
   #container .list-type .content ul li.active .list-item {
     display: flex;
+    margin: 0;
   }
   #container .banner-box {
     display: none;
@@ -1373,7 +1450,7 @@
     content: "";
     width: 1px;
     height: 100%;
-    background: black;
+    background: #dbdbdb;
     display: block;
     right: -10px;
     top: 0;
@@ -1485,11 +1562,16 @@
   }
   #container .banner-type3 .wrapper .content {
     overflow: auto;
+    background: white;
+    padding: 30px 0 0;
   }
   #container .banner-type3 .wrapper .content ul {
-    display: flex;
-    gap: 30px;
+    grid-template-columns: repeat(6, 1fr);
     width: 200%;
+    gap: 0;
+  }
+  #container .banner-type3 .wrapper .content ul li {
+    padding: 0 15px;
   }
   #container .banner-type3 .wrapper .content ul li a {
     position: relative;
@@ -1526,9 +1608,11 @@
     width: 200%;
     height: 420px;
     padding: 0;
+    gap: 0;
   }
   #container .banner-type4 .content ul li,
 #container .banner-type4 .content ul li.active {
+    padding: 0 15px;
     height: 100%;
   }
   #container .banner-type4 .content ul li a,
@@ -1552,6 +1636,7 @@
   }
   #container .brand .content {
     flex-direction: column;
+    padding-bottom: 30px;
   }
   #container .brand .content .brand-list {
     max-width: initial;
@@ -1562,10 +1647,12 @@
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 0;
+  }
+  #container .brand .content .brand-list ul li {
     border: 1px solid #cfcfcf;
   }
-  #container .brand .content .brand-list ul li:not(:last-child) {
-    border-right: 1px solid #cfcfcf;
+  #container .brand .content .brand-list ul li:not(:first-child, :nth-child(6)) {
+    margin-left: -1px;
   }
   #container .brand .content .brand-list ul li button {
     border: none;
@@ -1580,14 +1667,85 @@
   #container .brand .content .brand-item {
     width: 100%;
   }
-  #container .brand .content .brand-item ul li .brand-header {
+  #container .brand .content .brand-item ul li {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  #container .brand .content .brand-item ul li a.brand-header {
     order: 2;
+    border-top: 1px solid #cfcfcf;
+    height: 0;
+    grid-column: span 4;
   }
-  #container .brand .content .brand-item ul li .brand-item:nth-child(2) {
+  #container .brand .content .brand-item ul li a.brand-header img {
+    display: none;
+  }
+  #container .brand .content .brand-item ul li a.brand-header .brand-text {
+    border: 1px solid #cfcfcf;
+    border-top: none;
+    padding: 10px;
+    position: relative;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    color: black;
+  }
+  #container .brand .content .brand-item ul li a.brand-header .brand-text p {
+    display: none;
+  }
+  #container .brand .content .brand-item ul li a.brand-header .brand-text h3 {
+    text-align: center;
+  }
+  #container .brand .content .brand-item ul li a.brand-item {
     order: 1;
   }
-  #container .brand .content .brand-item ul li .brand-item:nth-child(3) {
-    order: 1;
+  #container .brand .content .brand-item ul li a.brand-item .img {
+    height: initial;
+  }
+  #container .brand .content .brand-item ul li a.brand-item .text .item-name {
+    font-size: 1.05em;
+    line-height: 1.4;
+    height: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  #container .brand .content .brand-item ul li a.brand-item .text .item-price {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  #container .brand .content .brand-item ul li a.brand-item .text .item-price strong {
+    display: none;
+  }
+  #container .brand .content .brand-item ul li a.brand-item .text .item-price span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #f01d1d;
+  }
+  #container .brand .content .brand-item ul li a.brand-item .text .item-price small {
+    display: inline;
+    font-size: 1em;
+    margin-bottom: 0;
+    margin-top: 5px;
+  }
+  #container .slide-type {
+    display: none;
+  }
+  #mobile-footer-tab .go-top {
+    border-radius: 0;
+    border: 1px solid #cfcfcf;
+    color: #999;
+    top: -150px;
+    right: 40px;
+    width: 55px;
+    height: 55px;
+  }
+  #mobile-footer-tab > ul {
+    display: none;
   }
 }
 header {
@@ -1712,6 +1870,7 @@ header .gnb .wrapper ul li.active a::after {
   }
   header .header-inner {
     border-bottom: 1px solid #cfcfcf;
+    padding-bottom: 15px;
   }
   header .header-inner .wrapper {
     padding: 15px 0;

@@ -152,6 +152,7 @@ header {
     }
     .header-inner {
       border-bottom: $borderGrey;
+      padding-bottom: 15px;
       .wrapper {
         padding: 15px 0;
         grid-template-columns: 248px 320px 248px;

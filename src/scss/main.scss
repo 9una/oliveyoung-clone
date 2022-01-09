@@ -1269,6 +1269,84 @@
     .content-nav {
       display: none;
     }
+    .main-slide {
+      width: 100%;
+      position: relative;
+      .slide {
+        ul {
+          width: 300vw;
+          li {
+            width: 100vw;
+            a {
+              width: 100%;
+              max-width: 1020px;
+              margin: auto;
+              text-align: right;
+              background: #e2dbbf;
+              img {
+                width: initial;
+                height: 450px;
+              }
+              .text {
+                left: calc(170px + 50px);
+                text-align: left;
+                top: 100px;
+                p {
+                  font-size: 3.4em;
+                  font-weight: normal;
+                }
+                span {
+                  font-size: 1.5em;
+                }
+              }
+            }
+            &:first-child {
+              background: #e2dbbf;
+            }
+            &:nth-child(2) {
+              background: pink;
+            }
+            &:nth-child(3) {
+              background: rgb(196, 132, 196);
+            }
+          }
+        }
+      }
+      .pagination {
+        left: calc(50% - 510px + 170px + 50px);
+        bottom: 30px;
+      }
+      .slide-category {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: calc(50% - 510px);
+        ul {
+          height: 100%;
+          display: grid;
+          grid-template-rows: repeat(15, 1fr);
+          justify-content: space-between;
+          background: rgba(0, 0, 0, 0.35);
+          padding-top: 15px;
+          li {
+            &.awards {
+              background: rgba(0, 0, 0, 0.2);
+            }
+            a {
+              width: 170px;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              padding-left: 20px;
+              color: white;
+              font-weight: bold;
+              font-size: 1.05em;
+              letter-spacing: -0.04em;
+            }
+          }
+        }
+      }
+    }
     .banner-type1 {
       height: initial;
       gap: 5px;
@@ -1409,8 +1487,10 @@
       &.ranking {
         display: none;
       }
+      //view-ranking
       .cont-title {
         border-bottom: $borderGrey;
+        margin-bottom: 25px;
         a {
           position: absolute;
           right: 0;
@@ -1442,7 +1522,8 @@
               position: absolute;
               width: calc(50% - 20px);
               left: 0;
-              top: 0;
+              top: 50%;
+              transform: translateY(-50%);
               gap: 20px;
               .img {
                 max-width: 175px;
@@ -1471,6 +1552,7 @@
               }
               .list-item {
                 display: flex;
+                margin: 0;
               }
             }
           }
@@ -1541,7 +1623,7 @@
                 content: "";
                 width: 1px;
                 height: 100%;
-                background: black;
+                background: #dbdbdb;
                 display: block;
                 right: -10px;
                 top: 0;
@@ -1658,11 +1740,14 @@
         }
         .content {
           overflow: auto;
+          background: white;
+          padding: 30px 0 0;
           ul {
-            display: flex;
-            gap: 30px;
+            grid-template-columns: repeat(6, 1fr);
             width: 200%;
+            gap: 0;
             li {
+              padding: 0 15px;
               a {
                 position: relative;
                 .img {
@@ -1707,8 +1792,10 @@
           width: 200%;
           height: 420px;
           padding: 0;
+          gap: 0;
           li,
           li.active {
+            padding: 0 15px;
             height: 100%;
             a {
               width: initial;
@@ -1734,6 +1821,7 @@
     .brand {
       .content {
         flex-direction: column;
+        padding-bottom: 30px;
         .brand-list {
           max-width: initial;
           overflow: auto;
@@ -1742,10 +1830,10 @@
             display: grid;
             grid-template-columns: repeat(10, 1fr);
             gap: 0;
-            border: $borderGrey;
             li {
-              &:not(:last-child) {
-                border-right: $borderGrey;
+              border: $borderGrey;
+              &:not(:first-child, :nth-child(6)) {
+                margin-left: -1px;
               }
               button {
                 border: none;
@@ -1766,21 +1854,96 @@
           width: 100%;
           ul {
             li {
-              .brand-header {
-                order: 2;
-              }
-              .brand-item {
-                &:nth-child(2) {
-                  order: 1;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 40px;
+              a {
+                &.brand-header {
+                  order: 2;
+                  border-top: $borderGrey;
+                  height: 0;
+                  grid-column: span 4;
+                  img {
+                    display: none;
+                  }
+                  .brand-text {
+                    border: $borderGrey;
+                    border-top: none;
+                    padding: 10px;
+                    position: relative;
+                    width: 50%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: 0;
+                    color: black;
+                    p {
+                      display: none;
+                    }
+                    h3 {
+                      text-align: center;
+                    }
+                  }
                 }
-                &:nth-child(3) {
+                &.brand-item {
                   order: 1;
+                  .img {
+                    height: initial;
+                  }
+                  .text {
+                    .item-name {
+                      font-size: 1.05em;
+                      line-height: 1.4;
+                      height: 40px;
+                      text-overflow: ellipsis;
+                      overflow: hidden;
+                      display: -webkit-box;
+                      -webkit-line-clamp: 2;
+                      -webkit-box-orient: vertical;
+                    }
+                    .item-price {
+                      display: flex;
+                      gap: 8px;
+                      align-items: center;
+                      strong {
+                        display: none;
+                      }
+                      span {
+                        font-size: 1.5em;
+                        font-weight: bold;
+                        color: #f01d1d;
+                      }
+                      small {
+                        display: inline;
+                        font-size: 1em;
+                        margin-bottom: 0;
+                        margin-top: 5px;
+                      }
+                    }
+                  }
                 }
               }
             }
           }
         }
       }
+    }
+    .slide-type {
+      display: none;
+    }
+    .offline-store {
+    }
+  }
+  #mobile-footer-tab {
+    .go-top {
+      border-radius: 0;
+      border: $borderGrey;
+      color: #999;
+      top: -150px;
+      right: 40px;
+      width: 55px;
+      height: 55px;
+    }
+    & > ul {
+      display: none;
     }
   }
 }
