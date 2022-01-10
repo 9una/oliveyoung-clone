@@ -7,8 +7,9 @@ $(document).ready(function(){
 
 
 //mobile-scroll-header.fixed - ~ 900px
-const header = document.getElementById('header');
-const mobileFooterTab = document.getElementById('mobile-footer-tab');
+const header = document.getElementById('header'),
+      mobileFooterTab = document.getElementById('mobile-footer-tab');
+      
 let lastScrollTop = 0;
 
 function scrollFunc() { 
@@ -26,6 +27,8 @@ function scrollFunc() {
 
 if(window.innerWidth <= 900){
     window.addEventListener('scroll', scrollFunc);
+} else {
+    
 }
 
 
@@ -83,8 +86,53 @@ function mobileLocalNav(){
     }
 }
 
-//footer
-function infoOpen(){
-    const footerInfo = document.querySelector('footer . info-box');
-    footerInfo.classList.toggle('active');
+
+/* innerWidth에 따른 컨텐츠 html변경 */
+//pagination
+const pagination = document.createElement('div');
+pagination.className = "pagination";
+pagination.innerHTML = `<ul>
+    <li class="active"><button type="button">1</button></li>
+    <li><button type="button">2</button></li>
+</ul>`;
+
+//브랜드
+const brandText = document.querySelector('.brand .brand-name'),
+      brandName = brandText.innerHTML;
+
+//오프라인 매장      
+const offlineStore = document.querySelector('.offline-store .wrapper'),
+offlineStoreHtml = offlineStore.innerHTML,
+offlineStoreDesktopHtml = `<div>
+  <h3>올리브영 매장소식</h3><span>내 주변 인기 매장을 추천해드려요.</span>
+  <a href="#"><i class="fas fa-map-marker-alt"></i>내 주변 매장이 궁금하다면? <i class="fas fa-chevron-right"></i></a>
+</div>
+<div>
+  <a href="#" class="img">img</a>
+  <div>
+      <b>인기 매장 추천</b><a href="#">올리브영 서면 타운 <i class="fas fa-chevron-right"></i></a>
+      <span>영업중</span><a href="#" class="interest-store"><i class="far fa-star"></i> 6,348명이 관심매장으로 등록했습니다.</a>
+      <a href="#">이 매장에서 진행 중인 행사는? <small>진행중인 행사소식이 없어요</small></a>
+  </div>
+</div>`;
+
+//mobile
+      
+function mediaScreenSizeChange(){
+    if(window.innerWidth >= 901){
+        //pagination추가
+        document.querySelector('.brand .cont-title').appendChild(pagination);
+        //브랜드 더보기 버튼
+        brandText.innerHTML = `${brandName} 브랜드 상품 더보기 <i class="fas fa-chevron-right"></i>`;
+        //오프라인매장 html 변경
+        offlineStore.innerHTML = offlineStoreDesktopHtml;
+    }else {
+        if(document.querySelector('.brand .cont-title .pagination')){
+            document.querySelector('.brand .cont-title .pagination').remove();
+        }
+        brandText.innerHTML = `${brandName}`;
+        offlineStore.innerHTML = offlineStoreHtml;
+    }
 }
+mediaScreenSizeChange();
+window.addEventListener('resize', mediaScreenSizeChange);

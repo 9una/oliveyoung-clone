@@ -35,3 +35,118 @@
         <a href="#">법적고지</a>
     </div>
 </div>
+
+
+<!-- footer js -->
+<script type="text/javascript">
+    function infoOpen(){
+        const footerInfo = document.querySelector('footer . info-box');
+        footerInfo.classList.toggle('active');
+    }
+
+    const footer = document.getElementById('footer');
+    const mobileFooter = footer.innerHTML;
+    const desktopFooter = `
+    <div class="footer-top">
+        <div class="wrapper">
+            <div>
+                <a href="#">회사소개</a>
+                <a href="#">채용안내</a>
+                <a href="#">가맹점 개설문의</a>
+                <a href="#">상품입점 및 제휴문의</a>
+                <a href="#">사이버 감사실</a>
+                <a href="#">고객센터</a>
+            </div>
+            <form>
+                <select>
+                    <option>CJ그룹</option>
+                    <option>CJ주식회사</option>
+                    <option>식품&식품서비스</option>
+                    <option>CJ제일제당</option>
+                    <option>CJ푸드당</option>
+                    <option>CJ프레쉬웨이</option>
+                    <option>생명공학</option>
+                    <option>CJ제일제당 BIO사업부문</option>
+                    <option>CJ Feed & Care</option>
+                    <option>물류 & 신유통</option>
+                    <option>CJ대한통운</option>
+                    <option>CJ대한통운 건설부문</option>
+                    <option>CJ올리브영</option>
+                    <option>CJ올리브 네트웍스</option>
+                    <option>CJ ENM커머스 부문</option>
+                    <option>엔터테인먼트 & 미디어</option>
+                    <option>CJ ENM 엔터테인먼트 부문</option>
+                    <option>CJ CGV</option>
+                </select>
+            </form>
+        </div>
+        </div>
+        <div class="footer-mid">
+        <div class="wrapper">
+            <div class="business-info">
+                <a href="index.html" class="logo"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="로고"></a>
+                <div>
+                    <p>
+                        <b>씨제이올리브영 주식회사</b>
+                        대표이사 : 구창근 ｜ 사업자등록번호 : 090-09-090909<br>
+                        주소 : (04323) 서울특별시 용산구 한강대로 372. 24층<br>
+                        (동자동, KDB타워)<br>
+                        호스팅사업자 : CJ올리브네트웍스<br>
+                        통신판매업신고번호 : 2019-서울용산-1428<br>
+                        이메일 : oliveweb@cj.net
+                    </p>
+                    <a href="#">사업자 정보 확인 ></a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <a href="#">이용약관</a>
+                <a href="#">법적고지</a>
+                <a href="#" style="font-weight:bold;">개인정보처리방침</a>
+                <a href="#">청소년보호방침</a>
+                <a href="#">영상정보처리기기 운영/관리 방침</a>
+                <a href="#">이메일무단수집거부</a>
+            </div>
+            <div class="purchase-safety">
+                <p>
+                    <b>하나은행 구매안전 서비스</b>
+                    올리브영은 현금 결제한 금액에 대해 하나은행과 채무지급보증 계약을 체결하여 안전한 거래를 보장하고 있습니다.
+                </p>
+                <a href="#">서비스 가입사실 확인 ></a>
+            </div>
+            <div class="service-text">
+                <p class="isms">
+                    <span>정보보호 관리체계 ISMS 인증획득</span>
+                    <span>인증범위 : 온라인 쇼핑몰 운영(CJ올리브영)</span>
+                    <span>유효기간 : 2020.12.02 - 2023.12.01</span>
+                </p>
+                <p class="ncsi">
+                    <span>2017-2021 국가 고객 만족도(NCSI) 헬스앤뷰티전문점 업계 최초 5년 연속 1위</span>
+                </p>
+            </div>
+        </div>
+        </div>
+        <div class="footer-bottom">
+        <div class="wrapper">
+            <span class="copy">Copyright © CJ OliveYoung. ALL RIGHTS RESERVED</span>
+            <div class="sns">
+                <span>OLIVE YOUNG SNS</span>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>`;
+
+    function footerChange(){
+        if(window.innerWidth >= 901) {
+            footer.innerHTML = desktopFooter;
+        }else {
+            footer.innerHTML = mobileFooter;
+        }
+    }
+    footerChange();
+    window.addEventListener('resize', footerChange);
+</script>
