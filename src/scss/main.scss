@@ -51,7 +51,7 @@
   .brand {
     border-bottom: $borderGreyThick;
   }
-  main {
+  #mainSlide {
     position: relative;
     .slide {
       overflow: hidden;
@@ -696,6 +696,7 @@
     }
   }
   .banner-type4 {
+    max-width: 1136px;
     position: relative;
     .wrapper:first-child {
       padding-bottom: 20px;
@@ -704,6 +705,9 @@
       }
     }
     .content {
+      max-width: 1020px;
+      width: 100%;
+      margin: auto;
       overflow: auto;
       &::-webkit-scrollbar {
         width: 0;
@@ -760,22 +764,7 @@
       }
     }
     button {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #c0c0c0;
-      color: white;
-      position: absolute;
-      bottom: calc(50% - 40px);
-      i {
-        font-size: 1.4em;
-      }
-      &.prev-btn {
-        left: -50px;
-      }
-      &.next-btn {
-        right: -50px;
-      }
+      display: none;
     }
   }
   .brand {
@@ -860,6 +849,10 @@
               }
               &.brand-item {
                 width: 100%;
+                &:nth-child(4),
+                &:last-child {
+                  display: none;
+                }
                 .img {
                   height: 110px;
                   background-color: #f3f3f3;
@@ -1283,14 +1276,18 @@
     .content-nav {
       display: none;
     }
-    .main-slide {
+    #mainSlide {
       width: 100%;
       position: relative;
       .slide {
         ul {
-          width: 300vw;
+          width: 100%;
+          height: 450px;
+          position: relative;
           li {
             width: 100vw;
+            position: absolute;
+            z-index: 1;
             a {
               width: 100%;
               max-width: 1020px;
@@ -1314,6 +1311,9 @@
                 }
               }
             }
+            &.active {
+              z-index: 2;
+            }
             &:first-child {
               background: #e2dbbf;
             }
@@ -1329,10 +1329,33 @@
       .pagination {
         left: calc(50% - 510px + 170px + 50px);
         bottom: 30px;
+        width: auto;
+        max-width: 180px;
+        justify-content: space-between;
+        background: none;
+        z-index: 3;
+        button {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          color: white;
+          background: rgba(0, 0, 0, 0.2);
+          &:hover {
+            background: rgba(0, 0, 0, 0.5);
+          }
+        }
+        p {
+          display: flex;
+          text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+          span {
+            margin: 0 5px;
+          }
+        }
       }
       .slide-category {
         display: block;
         position: absolute;
+        z-index: 3;
         height: 100%;
         top: 0;
         left: calc(50% - 510px);
@@ -1583,6 +1606,9 @@
       display: none;
     }
     .banner-type2 {
+      .wrapper:first-child {
+        padding-bottom: 20px;
+      }
       .cont-title {
         padding-bottom: 0;
       }
@@ -1590,6 +1616,12 @@
         ul {
           display: flex;
           gap: 20px;
+          li {
+            margin-top: 0;
+            a {
+              margin-top: 0;
+            }
+          }
         }
       }
       &.weekly {
@@ -1597,6 +1629,9 @@
       }
       &.keyword {
         padding-bottom: 50px;
+        .cont-title {
+          margin-bottom: 20px;
+        }
         .content {
           a {
             .img {
@@ -1854,6 +1889,25 @@
           }
         }
       }
+      button {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #c0c0c0;
+        color: white;
+        position: absolute;
+        bottom: calc(50% - 40px);
+        i {
+          font-size: 1.4em;
+        }
+        &.prev-btn {
+          left: 5px;
+        }
+        &.next-btn {
+          right: 5px;
+        }
+      }
     }
     .brand {
       .cont-title {
@@ -1879,6 +1933,7 @@
                 font-weight: bold;
                 justify-content: center;
                 align-items: center;
+                font-family: "roboto";
               }
             }
           }
@@ -1976,6 +2031,10 @@
                 }
                 &.brand-item {
                   order: 1;
+                  &:nth-child(4),
+                  &:last-child {
+                    display: block;
+                  }
                   .img {
                     height: initial;
                   }
@@ -2205,17 +2264,21 @@
     }
   }
   #mobile-footer-tab {
-    .go-top {
-      border-radius: 0;
-      border: $borderGrey;
-      color: #999;
-      top: -150px;
-      right: 40px;
-      width: 55px;
-      height: 55px;
-    }
-    & > ul {
-      display: none;
-    }
+    display: none;
+  }
+  #pc__go-top {
+    position: fixed;
+    border: $borderGrey;
+    background: white;
+    color: #999;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 40px;
+    right: 40px;
+    width: 55px;
+    height: 55px;
+    z-index: 11;
   }
 }

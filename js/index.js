@@ -31,8 +31,6 @@ if(window.innerWidth <= 900){
     
 }
 
-
-
 //banner-type1
 const bannerTypeOne = document.querySelectorAll('.banner-type1 .banner-item');
 for(let i = 0; i < bannerTypeOne.length; i++){
@@ -116,8 +114,13 @@ offlineStoreDesktopHtml = `<div>
   </div>
 </div>`;
 
-//mobile
-      
+//make go-top btn (desktop size)
+const pcGoTop = document.createElement("a");
+pcGoTop.id = "pc__go-top";
+pcGoTop.setAttribute('href', "#header");
+pcGoTop.innerHTML = `<i class="fas fa-arrow-up"></i>`;
+
+
 function mediaScreenSizeChange(){
     if(window.innerWidth >= 901){
         //pagination추가
@@ -126,12 +129,15 @@ function mediaScreenSizeChange(){
         brandText.innerHTML = `${brandName} 브랜드 상품 더보기 <i class="fas fa-chevron-right"></i>`;
         //오프라인매장 html 변경
         offlineStore.innerHTML = offlineStoreDesktopHtml;
+        //go-top;
+        document.querySelector('body').append(pcGoTop);
     }else {
         if(document.querySelector('.brand .cont-title .pagination')){
             document.querySelector('.brand .cont-title .pagination').remove();
         }
         brandText.innerHTML = `${brandName}`;
         offlineStore.innerHTML = offlineStoreHtml;
+        pcGoTop.remove();
     }
 }
 mediaScreenSizeChange();
