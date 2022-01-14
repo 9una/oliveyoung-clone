@@ -27,8 +27,18 @@ function mainSlide(){
     itemNum.innerText = `${curPos + 1}`;
     entireNum.innerText = `${item.length}`;
 
+    let timerNext;
+
     //main slide change - mobile or desktop
     if(window.innerWidth >= 901){
+        list.style.transform = "translateX(0)";
+        // clearInterval();
+        // https://developer.mozilla.org/en-US/docs/Web/API/setInterval
+        // 여기 setInterval에서 if (!nIntervId) { 검색해서 고쳐봐아아아ㅏㅏㅏㅏㅏㅏㅏㅏ
+        
+        
+        //mobile > desktop으로 리사이징됐을 때
+
         //desktop size - opacity 0 >> 1
         const prevBtn = main.querySelector('.pagination .prev-btn'),
               nextBtn = main.querySelector('.pagination .next-btn');
@@ -64,8 +74,8 @@ function mainSlide(){
         
         prevBtn.addEventListener('click', prev);
         nextBtn.addEventListener('click', next);
-        
-    }else {
+    }
+    if(window.innerWidth < 901) {
         //mobile size - transform move & setInterval
         function prev(){
             if(curPos > 0){
@@ -94,7 +104,7 @@ function mainSlide(){
             }
             itemNum.innerText = `${curPos + 1}`;
         }
-        setInterval(next,3500);
+        timerNext = setInterval(next,3500);
 
 
         function touch_start(event){
