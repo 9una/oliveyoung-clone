@@ -125,6 +125,7 @@ header {
 @include desktop {
   header {
     position: relative;
+    border-bottom: 2px solid #555;
     .header-top {
       display: block;
       .wrapper {
@@ -147,6 +148,7 @@ header {
               }
             }
             a {
+              display: inline-block;
               font-size: 0.85em;
             }
           }
@@ -225,7 +227,7 @@ header {
       position: absolute;
       width: 100%;
       max-width: 1020px;
-      top: 162px;
+      top: 163px;
       left: 50%;
       transform: translateX(-50%);
       background: #dbdbdb;

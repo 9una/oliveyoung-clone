@@ -22,10 +22,10 @@
   @media (min-width: #{$breakpoint-tablet + 1px}) {
     @content;
   }
-} // 901 ~
+} // 901 ~ 1020
 
-// @mixin desktop-l {
-//   @media (min-width: #{$breakpoint-desktop + 1}) {
-//     @content;
-//   }
-// } // 1025 ~
+@mixin desktop-l {
+  @media (min-width: #{$breakpoint-desktop + 1px}) {
+    @content;
+  }
+} // 1021 ~
