@@ -532,7 +532,7 @@
       }
     }
     .content {
-      overflow: auto;
+      overflow: hidden;
       &::-webkit-scrollbar {
         width: 0;
         height: 0;
@@ -541,6 +541,7 @@
         width: max-content;
         display: flex;
         gap: 5px;
+        transition: transform 0.3s;
         li {
           width: 85vw;
           height: 400px;
@@ -723,6 +724,7 @@
         gap: 20px;
         height: 380px;
         li {
+          transition: width 0.3s, height 0.3s;
           a {
             position: relative;
             border-radius: 30px;
@@ -1301,6 +1303,7 @@
                 display: none;
               }
               .text {
+                top: 50px;
                 width: 100%;
                 max-width: 1020px;
                 text-align: left;
@@ -1315,7 +1318,7 @@
                   }
                 }
                 b {
-                  font-size: 1.4em;
+                  font-size: 1.3em;
                   &::after {
                     content: "";
                     width: 12px;
@@ -1807,12 +1810,32 @@
     .popular-event {
       padding-bottom: 50px;
       .wrapper:first-child {
+        position: relative;
         .cont-title {
           margin: 0;
           padding: 0;
         }
         .pagination {
-          display: none;
+          position: absolute;
+          right: 0;
+          bottom: 20px;
+          gap: 0;
+          button {
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "roboto";
+            font-weight: bold;
+            font-size: 1.1em;
+            &.active {
+              background: #444;
+              color: white;
+            }
+          }
         }
       }
       .content {
@@ -2065,27 +2088,20 @@
         .pagination {
           position: absolute;
           right: 0;
-          ul {
+          display: flex;
+          button {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
             display: flex;
-            li {
-              margin-right: 6px;
-              &.active {
-                button {
-                  background: #444;
-                  color: white;
-                }
-              }
-              button {
-                width: 25px;
-                height: 25px;
-                border-radius: 50%;
-                display: flex;
-                font-size: 1.1em;
-                font-weight: bold;
-                justify-content: center;
-                align-items: center;
-                font-family: "roboto";
-              }
+            font-size: 1.1em;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+            font-family: "roboto";
+            &.active {
+              background: #444;
+              color: white;
             }
           }
         }
@@ -2095,16 +2111,13 @@
         gap: 35px;
         .brand-list {
           max-width: initial;
-          overflow: auto;
-          &::-webkit-scrollbar {
-            width: 0px;
-            height: 0px;
-          }
+          overflow: hidden;
           ul {
             width: 200%;
             display: grid;
             grid-template-columns: repeat(10, 1fr);
             gap: 0;
+            transition: transform 0.3s;
             li {
               border: $borderGrey;
               &:not(:first-child, :nth-child(6)) {

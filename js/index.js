@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('#header').load("header.html");
+    $('.brand').load("brand.html");
     $('#mobileLnb').load("mLnb.html");
     $('#footer').load("footer.html");
 });
@@ -84,19 +85,69 @@ function mobileLocalNav(){
     }
 }
 
+// 인기 행사
+(function () { 
+    let curPos = 0,
+        position = 0;
+    
+    const popularEvent = document.querySelector('.popular-event'),
+        pagination = popularEvent.querySelector('.pagination'),
+        paginationHtml = pagination.innerHTML,
+        list = popularEvent.querySelector('.content ul');
+    
+    function slideChange() {
+        if (window.innerWidth >= 901) {
+            pagination.innerHTML = `<button type="button" class="active">1</button>
+            <button type="button">2</button>
+            <button type="button">3</button>
+            <button type="button">4</button>`;
 
-/* innerWidth에 따른 컨텐츠 html변경 */
-//pagination
-const pagination = document.createElement('div');
-pagination.className = "pagination";
-pagination.innerHTML = `<ul>
-    <li class="active"><button type="button">1</button></li>
-    <li><button type="button">2</button></li>
-</ul>`;
+            const pageItem = popularEvent.querySelectorAll('.pagination button'),
+                  ITEM_WIDTH = 100 / pageItem.length; 
+            
+            list.style.transform = `translateX(0)`;
+            
+            for (let i = 0; i < pageItem.length; i++) { 
+                pageItem[i].addEventListener('click', () => {
+                    let j = 0;
+                    while (j < pageItem.length) {
+                        pageItem[j++].classList.remove('active');
+                    }
+                    pageItem[i].classList.add('active');
+                    position = ITEM_WIDTH * i;
 
-//브랜드
-const brandText = document.querySelector('.brand .brand-name'),
-      brandName = brandText.innerHTML;
+                    list.style.transform = `translateX(-${position}%)`;
+                })
+            }
+        }
+        if (window.innerWidth <= 900) {
+            pagination.innerHTML = paginationHtml;
+            
+            const pageItem = popularEvent.querySelectorAll('.pagination button'),
+                  ITEM_WIDTH = 100 / pageItem.length;
+            
+            list.style.transform = `translateX(0)`;
+
+            for (let i = 0; i < pageItem.length; i++) {
+                pageItem[i].addEventListener('click', () => {
+                    let j = 0;
+                    while (j < pageItem.length) {
+                        pageItem[j++].classList.remove('active');
+                    }
+                    pageItem[i].classList.add('active');
+                    position = ITEM_WIDTH * i;
+                    list.style.transform = `translateX(-${position + 0.1}%)`;
+                    if (i == pageItem.length - 1) {
+                        list.style.transform = `translateX(-85.4%)`;
+                    }
+                })
+            }
+        }
+    }
+    slideChange();
+    window.addEventListener('resize', slideChange);
+}) ();
+
 
 //오프라인 매장      
 const offlineStore = document.querySelector('.offline-store .wrapper'),
@@ -123,19 +174,11 @@ pcGoTop.innerHTML = `<i class="fas fa-arrow-up"></i>`;
 
 function mediaScreenSizeChange(){
     if(window.innerWidth >= 901){
-        //pagination추가
-        document.querySelector('.brand .cont-title').appendChild(pagination);
-        //브랜드 더보기 버튼
-        brandText.innerHTML = `${brandName} 브랜드 상품 더보기 <i class="fas fa-chevron-right"></i>`;
         //오프라인매장 html 변경
         offlineStore.innerHTML = offlineStoreDesktopHtml;
         //go-top;
         document.querySelector('body').append(pcGoTop);
     }else {
-        if(document.querySelector('.brand .cont-title .pagination')){
-            document.querySelector('.brand .cont-title .pagination').remove();
-        }
-        brandText.innerHTML = `${brandName}`;
         offlineStore.innerHTML = offlineStoreHtml;
         pcGoTop.remove();
     }

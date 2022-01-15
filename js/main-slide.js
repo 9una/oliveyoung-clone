@@ -104,7 +104,7 @@ function mainSlide(){
             }
             itemNum.innerText = `${curPos + 1}`;
         }
-        timerNext = setInterval(next,3500);
+        // timerNext = setInterval(next,3500);
 
 
         function touch_start(event){

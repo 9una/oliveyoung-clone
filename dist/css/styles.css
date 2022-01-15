@@ -480,7 +480,7 @@
   border-color: #ff7b71;
 }
 #container .popular-event .content {
-  overflow: auto;
+  overflow: hidden;
 }
 #container .popular-event .content::-webkit-scrollbar {
   width: 0;
@@ -490,6 +490,7 @@
   width: max-content;
   display: flex;
   gap: 5px;
+  transition: transform 0.3s;
 }
 #container .popular-event .content ul li {
   width: 85vw;
@@ -645,6 +646,9 @@
   padding-right: calc(50% - 150px);
   gap: 20px;
   height: 380px;
+}
+#container .banner-type4 .content ul li {
+  transition: width 0.3s, height 0.3s;
 }
 #container .banner-type4 .content ul li a {
   position: relative;
@@ -1162,6 +1166,7 @@
     display: none;
   }
   #container #mainSlide .slide ul li a .text {
+    top: 50px;
     width: 100%;
     max-width: 1020px;
     text-align: left;
@@ -1175,7 +1180,7 @@
     color: white;
   }
   #container #mainSlide .slide ul li a .text b {
-    font-size: 1.4em;
+    font-size: 1.3em;
   }
   #container #mainSlide .slide ul li a .text b::after {
     content: "";
@@ -1612,12 +1617,34 @@
   #container .popular-event {
     padding-bottom: 50px;
   }
+  #container .popular-event .wrapper:first-child {
+    position: relative;
+  }
   #container .popular-event .wrapper:first-child .cont-title {
     margin: 0;
     padding: 0;
   }
   #container .popular-event .wrapper:first-child .pagination {
-    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    gap: 0;
+  }
+  #container .popular-event .wrapper:first-child .pagination button {
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "roboto";
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  #container .popular-event .wrapper:first-child .pagination button.active {
+    background: #444;
+    color: white;
   }
   #container .popular-event .content {
     height: 700px;
@@ -1857,18 +1884,9 @@
   #container .brand .cont-title .pagination {
     position: absolute;
     right: 0;
-  }
-  #container .brand .cont-title .pagination ul {
     display: flex;
   }
-  #container .brand .cont-title .pagination ul li {
-    margin-right: 6px;
-  }
-  #container .brand .cont-title .pagination ul li.active button {
-    background: #444;
-    color: white;
-  }
-  #container .brand .cont-title .pagination ul li button {
+  #container .brand .cont-title .pagination button {
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -1879,23 +1897,24 @@
     align-items: center;
     font-family: "roboto";
   }
+  #container .brand .cont-title .pagination button.active {
+    background: #444;
+    color: white;
+  }
   #container .brand .content {
     flex-direction: column;
     gap: 35px;
   }
   #container .brand .content .brand-list {
     max-width: initial;
-    overflow: auto;
-  }
-  #container .brand .content .brand-list::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
+    overflow: hidden;
   }
   #container .brand .content .brand-list ul {
     width: 200%;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 0;
+    transition: transform 0.3s;
   }
   #container .brand .content .brand-list ul li {
     border: 1px solid #cfcfcf;
@@ -2344,7 +2363,7 @@ header .lnb-category {
   }
   header .header-top .wrapper ul li a {
     display: inline-block;
-    font-size: 0.85em;
+    font-size: 0.9em;
   }
   header .header-inner {
     border-bottom: 1px solid #cfcfcf;
