@@ -1704,6 +1704,7 @@
         padding-bottom: 30px;
         border-bottom: $borderGrey;
         ul {
+          overflow: hidden;
           position: relative;
           li {
             width: calc(50% - 20px);
@@ -1722,9 +1723,11 @@
               position: absolute;
               width: calc(50% - 20px);
               left: 0;
-              top: 50%;
-              transform: translateY(-50%);
+              top: 100%;
+              opacity: 0;
               gap: 20px;
+              transition: all 0.3s;
+              display: flex;
               .img {
                 max-width: 175px;
                 width: 100%;
@@ -1751,6 +1754,9 @@
                 }
               }
               .list-item {
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 1;
                 display: flex;
                 margin: 0;
               }
