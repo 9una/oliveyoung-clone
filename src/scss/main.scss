@@ -804,14 +804,17 @@
           }
         }
       }
-      .brand-item {
+      .brand-goods {
         width: calc(100% - 110px - 15px);
         ul {
           li {
-            display: grid;
+            display: none;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: auto auto;
             gap: 10px;
+            &.active {
+              display: grid;
+            }
             a {
               &.brand-header {
                 grid-column: span 2;
@@ -2141,7 +2144,7 @@
             }
           }
         }
-        .brand-item {
+        .brand-goods {
           width: 100%;
           ul {
             li {
@@ -2201,6 +2204,13 @@
                   }
                   .img {
                     height: initial;
+                    width: 100%;
+                    padding-bottom: 100%;
+                    position: relative;
+                    img {
+                      object-fit: cover;
+                      position: absolute;
+                    }
                   }
                   .text {
                     text-align: center;
