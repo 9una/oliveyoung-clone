@@ -620,11 +620,7 @@
   max-width: 1020px;
   width: 100%;
   margin: auto;
-  overflow: auto;
-}
-#container .banner-type4 .content::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+  overflow: hidden;
 }
 #container .banner-type4 .content ul {
   width: max-content;
@@ -634,6 +630,7 @@
   padding-right: calc(50% - 150px);
   gap: 20px;
   height: 380px;
+  transition: transform 0.3s;
 }
 #container .banner-type4 .content ul li {
   transition: width 0.3s, height 0.3s;
@@ -1778,6 +1775,29 @@
     font-weight: 600;
     margin-right: 10px;
   }
+  #container .banner-type3 .wrapper .cont-title .pagination {
+    display: flex;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    gap: 0;
+  }
+  #container .banner-type3 .wrapper .cont-title .pagination button {
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "roboto";
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  #container .banner-type3 .wrapper .cont-title .pagination button.active {
+    background: #444;
+    color: white;
+  }
   #container .banner-type3 .wrapper .content {
     overflow: auto;
     background: white;
@@ -1791,6 +1811,7 @@
     grid-template-columns: repeat(6, 1fr);
     width: 200%;
     gap: 0;
+    transition: transform 0.3s;
   }
   #container .banner-type3 .wrapper .content ul li {
     padding: 0 15px;

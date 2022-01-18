@@ -674,11 +674,7 @@
       max-width: 1020px;
       width: 100%;
       margin: auto;
-      overflow: auto;
-      &::-webkit-scrollbar {
-        width: 0;
-        height: 0;
-      }
+      overflow: hidden;
       ul {
         width: max-content;
         display: flex;
@@ -687,6 +683,7 @@
         padding-right: calc(50% - 300px / 2);
         gap: 20px;
         height: 380px;
+        transition: transform 0.3s;
         li {
           transition: width 0.3s, height 0.3s;
           a {
@@ -1949,6 +1946,29 @@
               margin-right: 10px;
             }
           }
+          .pagination {
+            display: flex;
+            position: absolute;
+            right: 0;
+            bottom: 20px;
+            gap: 0;
+            button {
+              border: none;
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-family: "roboto";
+              font-weight: bold;
+              font-size: 1.1em;
+              &.active {
+                background: #444;
+                color: white;
+              }
+            }
+          }
         }
         .content {
           overflow: auto;
@@ -1962,6 +1982,7 @@
             grid-template-columns: repeat(6, 1fr);
             width: 200%;
             gap: 0;
+            transition: transform 0.3s;
             li {
               padding: 0 15px;
               a {

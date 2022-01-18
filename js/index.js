@@ -87,9 +87,7 @@ function mobileLocalNav(){
 
 // 인기 행사
 function popularEvent() { 
-    let curPos = 0,
-        position = 0;
-    
+    let position = 0;
     const popularEvent = document.querySelector('.popular-event'),
         pagination = popularEvent.querySelector('.pagination'),
         paginationHtml = pagination.innerHTML,
@@ -149,6 +147,165 @@ function popularEvent() {
 };
 popularEvent();
 
+// 오직 올리브영에서만
+function onlyEvent() { 
+    const bannerType3 = document.querySelector('.banner-type3');
+    const list = bannerType3.querySelector('.content ul');
+
+    const pagination = document.createElement('div');
+    pagination.className = `pagination`;
+    
+    function pagiSlide() {
+        let position = 0;
+        const pagiBtn = pagination.querySelectorAll('button'),
+                LIST_WIDTH = 100 / pagiBtn.length;
+        
+        if (window.innerWidth >= 901) {
+            for (let i = 0; i < pagiBtn.length; i++) {
+                pagiBtn[i].addEventListener('click', () => {
+                    position = LIST_WIDTH * i;
+                    list.style.transform = `translateX(-${position}%)`;
+                    let j = 0;
+                    while (j < pagiBtn.length) {
+                        pagiBtn[j++].classList.remove('active');
+                    }
+                    pagiBtn[i].classList.add('active');
+                })
+            }
+        }
+    }
+
+    function addPagi() {
+        if (window.innerWidth >= 901) {
+            //pagination change
+            pagination.innerHTML = `<button type="button" class="active">1</button>
+                            <button type="button">2</button>`;
+            bannerType3.querySelector('.cont-title').appendChild(pagination);
+            pagiSlide();
+        } else {
+            //pagination remove
+            list.style.transform = `translateX(0)`;
+            if (document.querySelector('.banner-type3 .cont-title .pagination')) { 
+                document.querySelector('.banner-type3 .cont-title .pagination').remove();
+            }
+        }
+    }
+    addPagi();
+    window.addEventListener('resize', addPagi);
+};
+onlyEvent();
+
+// HEALTHY LIFE
+function healthylife(){
+    const bannerType4 = document.querySelector('.banner-type4'),
+        list = bannerType4.querySelector('.content ul'),
+        item = bannerType4.querySelectorAll('.content ul li'),
+        LIST_WIDTH = 100 / item.length,
+        prevBtn = bannerType4.querySelector('.prev-btn'),
+        nextBtn = bannerType4.querySelector('.next-btn');
+    
+    function changeSlide() { 
+        if (window.innerWidth >= 901) { 
+            console.log('desktop');
+            //desktop
+            let curPos = 0,
+                position = 0;
+            const LIST_WIDTH = 100 / item.length;
+            list.style.transform = `translateX(0%)`;
+    
+            function prev() { 
+                if (curPos > 0) {
+                    curPos -= 1;
+                    position += LIST_WIDTH;
+                    list.style.transform = `translateX(${position}%)`;
+                } else { 
+                    //curPos = first item
+                    curPos = item.length - 3;
+                    position -= LIST_WIDTH * curPos;
+                    list.style.transform = `translateX(${position}%)`;
+                }
+                console.log(curPos);
+            }
+            function next(){
+                if(curPos < item.length - 3){
+                    curPos += 1;
+                    position -= LIST_WIDTH;
+                    list.style.transform = `translateX(${position}%)`;
+                }else {
+                    //curPos = last item
+                    curPos = 0;
+                    position = 0;
+                    list.style.transform = `translateX(${position}%)`;
+                }
+                console.log(curPos);
+            }
+            prevBtn.addEventListener('click', prev);
+            nextBtn.addEventListener('click', next);
+        
+        } else {
+            console.log('mobile');
+            //mobile
+            let curPos = 0,
+                position = 0;
+            let start_x, end_x;
+            list.style.transform = `translateX(0%)`;
+
+            function prev() { 
+                if (curPos > 0) {
+                    curPos -= 1;
+                    position += LIST_WIDTH;
+                    list.style.transform = `translateX(${position}%)`;
+                } else { 
+                    //curPos = first item
+                    curPos = item.length - 1;
+                    position -= LIST_WIDTH * curPos;
+                    list.style.transform = `translateX(${position}%)`;
+                }
+                let i = 0;
+                while (i < item.length) {
+                    item[i++].classList.remove('active');
+                 }
+                item[curPos].classList.add('active');
+            }
+            function next() {
+                if(curPos < item.length - 1){
+                    curPos += 1;
+                    position -= LIST_WIDTH;
+                    list.style.transform = `translateX(${position}%)`;
+                }else {
+                    //curPos = last item
+                    curPos = 0;
+                    position = 0;
+                    list.style.transform = `translateX(${position}%)`;
+                }
+                let i = 0;
+                while (i < item.length) {
+                    item[i++].classList.remove('active');
+                 }
+                item[curPos].classList.add('active');
+            }
+    
+            function touch_start(event){
+                start_x = event.touches[0].pageX;
+            }
+            function touch_end(event){
+                end_x = event.changedTouches[0].pageX;
+                if(start_x > end_x){
+                    next();
+                } else {
+                    prev();
+                }
+            }
+    
+            list.addEventListener('touchstart', touch_start);
+            list.addEventListener('touchend', touch_end);
+        }
+    }
+    changeSlide();
+    window.addEventListener('resize', changeSlide);
+}
+healthylife();
+
 
 //오프라인 매장      
 const offlineStore = document.querySelector('.offline-store .wrapper'),
@@ -202,10 +359,8 @@ function mediaScreenSizeChange(){
         document.querySelector('body').append(pcGoTop);
     }else {
         offlineStore.innerHTML = offlineStoreHtml;
-        if (pcGoTop) { 
+        if (pcGoTop && noticeCS) { 
             pcGoTop.remove();
-        }
-        if (noticeCS) { 
             noticeCS.remove();
         }
     }
