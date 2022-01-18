@@ -147,6 +147,10 @@ for(let i = 0; i < slideItem.length; i++){
                 <p>보습 캡슐이<br>지켜주는<br>피부 장벽</p>
                 <span>#보습장벽크림 30% 할인</span>`;
             } else if(i == 2){
+                text.innerHTML = `<b>피카소 꼴레지오니</b>
+                <p>섬세한 브러쉬로<br>귀여움까지 함께<br>그려보아요</p>
+                <span>차니베어 콜라보 컬렉션 런칭</span>`;
+            } else if(i == 3){
                 text.innerHTML = `<b>1월 생일선물🎂</b>
                 <p>생일축하해!<br>올리브를 위한<br>선물 받아줘🎁</p>
                 <span>#브링그린티룸핸드크림</span>`;

@@ -11,7 +11,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       align-items: flex-end;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       h3 {
         font-size: 1.35em;
         line-height: 1.3;
@@ -57,7 +57,7 @@
       overflow: hidden;
       ul {
         display: flex;
-        width: 300%;
+        width: 400%;
         transition: transform 0.3s;
         li {
           a {
@@ -270,12 +270,18 @@
     }
   }
   .item-type {
+    .cont-title {
+      margin-bottom: 20px;
+    }
     .content {
       margin-bottom: 20px;
       display: flex;
       flex-direction: column;
       gap: 20px;
       .list-item {
+        &:nth-child(n + 4) {
+          display: none;
+        }
       }
     }
   }
@@ -363,12 +369,6 @@
   }
   .list-type {
     &.ranking {
-      .cont-title {
-        margin-bottom: 0;
-      }
-      .wrapper:first-child {
-        // padding-bottom: 15px;
-      }
     }
     .cont-nav {
       overflow: auto;
@@ -431,20 +431,10 @@
   }
   .banner-box {
     padding-bottom: 0;
-    .content {
-      a {
-      }
-    }
   }
   .banner-type2 {
     &.weekly {
       padding-bottom: 0;
-      .wrapper:first-child {
-        // padding-bottom: 10px;
-        .cont-title {
-          margin-bottom: 0;
-        }
-      }
       .content {
         a {
           position: relative;
@@ -467,12 +457,6 @@
     &.keyword {
       padding-bottom: 20px;
       border-bottom: none;
-      .wrapper {
-        // padding-bottom: 10px;
-      }
-      .cont-title {
-        margin-bottom: 10px;
-      }
       .content {
         a {
           .img {
@@ -509,9 +493,6 @@
     padding-bottom: 0;
     .wrapper:first-child {
       padding-bottom: 20px;
-      .cont-title {
-        margin-bottom: 10px;
-      }
       .pagination {
         display: flex;
         flex-wrap: wrap;
@@ -624,19 +605,6 @@
                 }
                 .item-bn {
                   display: none;
-                  // span {
-                  //   font-size: 0.8em;
-                  //   padding: 3px 6px;
-                  //   border-radius: 3px;
-                  //   background: #efefef;
-                  //   font-weight: bold;
-                  // }
-                  // .today-bn {
-                  //   color: rgb(255, 103, 129);
-                  // }
-                  // .gift-bn {
-                  //   color: #888;
-                  // }
                 }
               }
               .btn {
@@ -659,9 +627,6 @@
   }
   .banner-type3 {
     background: #f3f3f3;
-    .cont-title {
-      margin-bottom: 10px;
-    }
     .content {
       ul {
         display: grid;
@@ -701,9 +666,8 @@
     max-width: 1136px;
     position: relative;
     .wrapper:first-child {
-      padding-bottom: 20px;
       .cont-title {
-        margin-bottom: 0;
+        margin-bottom: 20px;
       }
     }
     .content {
@@ -772,7 +736,7 @@
   }
   .brand {
     .cont-title {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
     .content {
       display: flex;
@@ -898,12 +862,6 @@
     }
   }
   .slide-type {
-    .wrapper:first-child {
-      // padding-bottom: 10px;
-      .cont-title {
-        margin-bottom: 0;
-      }
-    }
     .content {
       overflow: auto;
       &::-webkit-scrollbar {
@@ -987,7 +945,6 @@
   }
   .view-ranking {
     .cont-title {
-      margin-bottom: 10px;
       small {
         font-size: 0.95em;
         color: #777;
@@ -1018,9 +975,6 @@
         }
       }
     }
-  }
-  .notice-cs {
-    display: none;
   }
 }
 /**/
@@ -1361,6 +1315,10 @@
                 no-repeat center;
             }
             &:nth-child(3) a {
+              background: url("https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/8028749800133499441.jpg")
+                no-repeat center;
+            }
+            &:nth-child(4) a {
               background: url("https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/4652920810529596595.jpg")
                 no-repeat center;
             }
@@ -1648,6 +1606,9 @@
           display: flex;
           flex-direction: column;
           position: relative;
+          &:nth-child(n + 4) {
+            display: flex;
+          }
           .img {
             width: 100%;
             padding-bottom: 100%;

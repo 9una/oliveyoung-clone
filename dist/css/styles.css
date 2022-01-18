@@ -14,7 +14,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 #container > section .cont-title h3, #container > div .cont-title h3 {
   font-size: 1.35em;
@@ -57,7 +57,7 @@
 }
 #container #mainSlide .slide ul {
   display: flex;
-  width: 300%;
+  width: 400%;
   transition: transform 0.3s;
 }
 #container #mainSlide .slide ul li a {
@@ -255,11 +255,17 @@
     right: calc(80vw - 12px);
   }
 }
+#container .item-type .cont-title {
+  margin-bottom: 20px;
+}
 #container .item-type .content {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+#container .item-type .content .list-item:nth-child(n+4) {
+  display: none;
 }
 #container .item-type .content .list-item,
 #container .list-type .content .list-item {
@@ -347,9 +353,6 @@
 #container .list-type .content .list-item .btn button {
   color: #666;
 }
-#container .list-type.ranking .cont-title {
-  margin-bottom: 0;
-}
 #container .list-type .cont-nav {
   overflow: auto;
   padding: 0 20px;
@@ -406,9 +409,6 @@
 #container .banner-type2.weekly {
   padding-bottom: 0;
 }
-#container .banner-type2.weekly .wrapper:first-child .cont-title {
-  margin-bottom: 0;
-}
 #container .banner-type2.weekly .content a {
   position: relative;
 }
@@ -428,9 +428,6 @@
 #container .banner-type2.keyword {
   padding-bottom: 20px;
   border-bottom: none;
-}
-#container .banner-type2.keyword .cont-title {
-  margin-bottom: 10px;
 }
 #container .banner-type2.keyword .content a .img img {
   border-radius: 5px;
@@ -457,9 +454,6 @@
 }
 #container .popular-event .wrapper:first-child {
   padding-bottom: 20px;
-}
-#container .popular-event .wrapper:first-child .cont-title {
-  margin-bottom: 10px;
 }
 #container .popular-event .wrapper:first-child .pagination {
   display: flex;
@@ -587,9 +581,6 @@
 #container .banner-type3 {
   background: #f3f3f3;
 }
-#container .banner-type3 .cont-title {
-  margin-bottom: 10px;
-}
 #container .banner-type3 .content ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -622,11 +613,8 @@
   max-width: 1136px;
   position: relative;
 }
-#container .banner-type4 .wrapper:first-child {
-  padding-bottom: 20px;
-}
 #container .banner-type4 .wrapper:first-child .cont-title {
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 #container .banner-type4 .content {
   max-width: 1020px;
@@ -690,7 +678,7 @@
   display: none;
 }
 #container .brand .cont-title {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 #container .brand .content {
   display: flex;
@@ -801,9 +789,6 @@
 #container .brand .content .brand-goods ul li a.brand-item .text .item-price strong {
   color: red;
 }
-#container .slide-type .wrapper:first-child .cont-title {
-  margin-bottom: 0;
-}
 #container .slide-type .content {
   overflow: auto;
 }
@@ -872,9 +857,6 @@
   margin-right: 15px;
   color: #666;
 }
-#container .view-ranking .cont-title {
-  margin-bottom: 10px;
-}
 #container .view-ranking .cont-title small {
   font-size: 0.95em;
   color: #777;
@@ -899,9 +881,6 @@
 #container .offline-store a i:last-child {
   margin-left: 10px;
   color: #999;
-}
-#container .notice-cs {
-  display: none;
 }
 
 /**/
@@ -1219,6 +1198,9 @@
     background: url("https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/1180325005852445901.jpg") no-repeat center;
   }
   #container #mainSlide .slide ul li:nth-child(3) a {
+    background: url("https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/8028749800133499441.jpg") no-repeat center;
+  }
+  #container #mainSlide .slide ul li:nth-child(4) a {
     background: url("https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/4652920810529596595.jpg") no-repeat center;
   }
   #container #mainSlide .pagination {
@@ -1476,6 +1458,9 @@
     display: flex;
     flex-direction: column;
     position: relative;
+  }
+  #container .item-type .content .list-item:nth-child(n+4) {
+    display: flex;
   }
   #container .item-type .content .list-item .img {
     width: 100%;

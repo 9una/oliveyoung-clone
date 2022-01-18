@@ -86,7 +86,7 @@ function mobileLocalNav(){
 }
 
 // 인기 행사
-(function () { 
+function popularEvent() { 
     let curPos = 0,
         position = 0;
     
@@ -146,7 +146,8 @@ function mobileLocalNav(){
     }
     slideChange();
     window.addEventListener('resize', slideChange);
-}) ();
+};
+popularEvent();
 
 
 //오프라인 매장      
@@ -165,6 +166,25 @@ offlineStoreDesktopHtml = `<div>
   </div>
 </div>`;
 
+// pc - 공지&고객센터
+const noticeCS = document.createElement('section');
+noticeCS.className = `notice-cs`;
+noticeCS.innerHTML = `<div class="notice">
+    <h3>공지사항</h3><p>새로운 소식이 없어요</p><a href="#">더보기 ></a>
+</div>
+<div class="banner">
+    <img src="https://image.oliveyoung.co.kr/pc-static-root/image/main/img_mobile_app.png" alt="모바일 앱 : 모바일로 더 쉽고 편리하게" />
+</div>
+<div class="cs">
+    <h3>고객센터<br>이용안내</h3>
+    <p>온라인몰 고객센터<br><strong>1234-1234</strong><br>매장 고객센터<br><strong>1233-1233</strong></p>
+    <div>
+        <p><b>고객센터 운영시간 [평일 09:00 - 18:00]</b><br>주말 및 공휴일은 1:1문의하기를 이용해주세요.<br>업무가 시작되면 바로 처리해드립니다.</p>
+        <a href="#"><i class="fas fa-pencil-alt"></i> 1:1 문의하기</a>
+        <a href="#"><i class="fas fa-comment-dots"></i> 자주하는 질문</a>
+    </div>
+</div>`;
+
 //make go-top btn (desktop size)
 const pcGoTop = document.createElement("a");
 pcGoTop.id = "pc__go-top";
@@ -176,11 +196,18 @@ function mediaScreenSizeChange(){
     if(window.innerWidth >= 901){
         //오프라인매장 html 변경
         offlineStore.innerHTML = offlineStoreDesktopHtml;
+        //notice-cs
+        document.getElementById('container').append(noticeCS);
         //go-top;
         document.querySelector('body').append(pcGoTop);
     }else {
         offlineStore.innerHTML = offlineStoreHtml;
-        pcGoTop.remove();
+        if (pcGoTop) { 
+            pcGoTop.remove();
+        }
+        if (noticeCS) { 
+            noticeCS.remove();
+        }
     }
 }
 mediaScreenSizeChange();
