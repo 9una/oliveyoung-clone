@@ -638,6 +638,7 @@
   width: max-content;
   display: flex;
   align-items: center;
+  padding-left: calc(50% - 140px);
   height: 380px;
   transition: transform 0.3s;
 }
@@ -669,6 +670,9 @@
 #container .banner-type4 .content ul li a .text p {
   line-height: 1.3;
   letter-spacing: -0.02em;
+}
+#container .banner-type4 .content ul li.active {
+  margin-right: 30px;
 }
 #container .banner-type4 .content ul li.active a {
   width: 100%;
@@ -1879,12 +1883,15 @@
   #container .banner-type4 .content ul {
     width: 200%;
     height: 420px;
-    padding: 0;
-    gap: 0;
+    padding: 0 15px;
+    gap: 30px;
+  }
+  #container .banner-type4 .content ul li.active {
+    margin-right: 0;
   }
   #container .banner-type4 .content ul li,
 #container .banner-type4 .content ul li.active {
-    padding: 0 15px;
+    width: initial;
     height: 100%;
   }
   #container .banner-type4 .content ul li a,
@@ -2134,6 +2141,7 @@
   #container .offline-store .wrapper > div:nth-child(2) .img {
     width: 45%;
     height: 220px;
+    padding: 0;
     position: relative;
     border-radius: 0;
     background: #e9e9e9;
@@ -2167,7 +2175,7 @@
   }
   #container .offline-store .wrapper > div:nth-child(2) div a:nth-child(2) i {
     font-size: 0.8em;
-    margin-left: 5px;
+    margin-left: 0;
     color: black;
     vertical-align: middle;
   }

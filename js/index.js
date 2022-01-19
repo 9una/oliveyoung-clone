@@ -204,107 +204,89 @@ function healthylife(){
         prevBtn = bannerType4.querySelector('.prev-btn'),
         nextBtn = bannerType4.querySelector('.next-btn');
     
-    function changeSlide() { 
-        if (window.innerWidth >= 901) { 
-            console.log('desktop');
-            //desktop
-            let curPos = 0,
-                position = 0;
-            const LIST_WIDTH = 100 / item.length;
-            list.style.transform = `translateX(0%)`;
+    let curPos = 0,
+        position = 0;
+    const itemWidth = 280;
     
+
+    function pcSlide() { 
+        if (window.innerWidth >= 901) { 
+            list.style.transform = `translateX(0%)`;
             function prev() { 
                 if (curPos > 0) {
                     curPos -= 1;
                     position += LIST_WIDTH;
-                    list.style.transform = `translateX(${position}%)`;
                 } else { 
-                    //curPos = first item
                     curPos = item.length - 3;
                     position -= LIST_WIDTH * curPos;
-                    list.style.transform = `translateX(${position}%)`;
                 }
-                console.log(curPos);
+                list.style.transform = `translateX(${position}%)`;
             }
             function next(){
                 if(curPos < item.length - 3){
                     curPos += 1;
                     position -= LIST_WIDTH;
-                    list.style.transform = `translateX(${position}%)`;
                 }else {
-                    //curPos = last item
                     curPos = 0;
                     position = 0;
-                    list.style.transform = `translateX(${position}%)`;
                 }
-                console.log(curPos);
+                list.style.transform = `translateX(${position}%)`;
             }
             prevBtn.addEventListener('click', prev);
             nextBtn.addEventListener('click', next);
-        
-        } else {
-            console.log('mobile');
-            //mobile
-            let curPos = 0,
-                position = 0;
+        }
+    }
+    function mobileSlide() { 
+        if (window.innerWidth <= 900) { 
             let start_x, end_x;
             list.style.transform = `translateX(0%)`;
 
-            function prev() { 
+            function activeChange() {
+                let i = 0;
+                while (i < item.length) {
+                    item[i++].classList.remove('active');
+                }
+                item[curPos].classList.add('active');
+            }
+            function prev() {
                 if (curPos > 0) {
                     curPos -= 1;
-                    position += LIST_WIDTH;
-                    list.style.transform = `translateX(${position}%)`;
-                } else { 
-                    //curPos = first item
+                } else { //curPos = first item
                     curPos = item.length - 1;
-                    position -= LIST_WIDTH * curPos;
-                    list.style.transform = `translateX(${position}%)`;
                 }
-                let i = 0;
-                while (i < item.length) {
-                    item[i++].classList.remove('active');
-                 }
-                item[curPos].classList.add('active');
+                list.style.transform = `translateX(calc(-${itemWidth}px * ${curPos}))`;
+                activeChange();
             }
             function next() {
-                if(curPos < item.length - 1){
+                if (curPos < item.length - 1) {
                     curPos += 1;
-                    position -= LIST_WIDTH;
-                    list.style.transform = `translateX(${position}%)`;
-                }else {
-                    //curPos = last item
+                } else { //curPos = last item
                     curPos = 0;
-                    position = 0;
-                    list.style.transform = `translateX(${position}%)`;
                 }
-                let i = 0;
-                while (i < item.length) {
-                    item[i++].classList.remove('active');
-                 }
-                item[curPos].classList.add('active');
+                list.style.transform = `translateX(calc(-${itemWidth}px * ${curPos}))`;
+                activeChange();
             }
-    
-            function touch_start(event){
+            function touch_start(event) {
                 start_x = event.touches[0].pageX;
             }
-            function touch_end(event){
+            function touch_end(event) {
                 end_x = event.changedTouches[0].pageX;
-                if(start_x > end_x){
+                if (start_x > end_x) {
                     next();
                 } else {
                     prev();
                 }
             }
-    
             list.addEventListener('touchstart', touch_start);
             list.addEventListener('touchend', touch_end);
         }
     }
-    changeSlide();
-    window.addEventListener('resize', changeSlide);
+
+    pcSlide();
+    mobileSlide();
 }
 healthylife();
+window.addEventListener('resize', healthylife);
 
 // 오늘의 특가
 function countDown() {
@@ -348,10 +330,10 @@ offlineStoreDesktopHtml = `<div>
   <a href="#"><i class="fas fa-map-marker-alt"></i>내 주변 매장이 궁금하다면? <i class="fas fa-chevron-right"></i></a>
 </div>
 <div>
-  <a href="#" class="img">img</a>
+  <a href="#" class="img"><img src="https://image.oliveyoung.co.kr/uploads/images/store/D352_1.jpg" alt="매장사진"></a>
   <div>
-      <b>인기 매장 추천</b><a href="#">올리브영 서면 타운 <i class="fas fa-chevron-right"></i></a>
-      <span>영업중</span><a href="#" class="interest-store"><i class="far fa-star"></i> 6,348명이 관심매장으로 등록했습니다.</a>
+      <b>인기 매장 추천</b><a href="#">탄현제니스점 <i class="fas fa-chevron-right"></i></a>
+      <span>영업중</span><a href="#" class="interest-store"><i class="far fa-star"></i> 2,2462명이 관심매장으로 등록했습니다.</a>
       <a href="#">이 매장에서 진행 중인 행사는? <small>진행중인 행사소식이 없어요</small></a>
   </div>
 </div>`;
