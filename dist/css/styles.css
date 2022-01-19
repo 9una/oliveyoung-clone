@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&family=Noto+Sans+KR:wght@100;400;600&family=Roboto:wght@100;300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap");
 #container {
   padding-top: 88px;
 }
@@ -373,8 +374,13 @@
 #container .list-type .cont-nav ul li.active {
   font-weight: bold;
 }
-#container .list-type .content ul li:not(:first-child) {
-  margin-top: 10px;
+#container .list-type .content ul li {
+  transition: height 0.3s;
+  height: 38px;
+  overflow: hidden;
+}
+#container .list-type .content ul li:not(:last-child) {
+  margin-bottom: 10px;
 }
 #container .list-type .content ul li > button {
   width: 100%;
@@ -393,15 +399,21 @@
   white-space: nowrap;
 }
 #container .list-type .content ul li .list-item {
-  display: none;
+  display: grid;
+  height: 80px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+#container .list-type .content ul li.active {
+  height: 128px;
 }
 #container .list-type .content ul li.active > button {
   border: 1px solid #000;
   color: black;
 }
 #container .list-type .content ul li.active .list-item {
-  display: grid;
-  margin: 15px 0;
+  opacity: 1;
 }
 #container .banner-box {
   padding-bottom: 0;
@@ -626,13 +638,11 @@
   width: max-content;
   display: flex;
   align-items: center;
-  padding-left: calc(50% - 150px);
-  padding-right: calc(50% - 150px);
-  gap: 20px;
   height: 380px;
   transition: transform 0.3s;
 }
 #container .banner-type4 .content ul li {
+  width: 280px;
   transition: width 0.3s, height 0.3s;
 }
 #container .banner-type4 .content ul li a {
@@ -661,7 +671,7 @@
   letter-spacing: -0.02em;
 }
 #container .banner-type4 .content ul li.active a {
-  width: 285px;
+  width: 100%;
   height: 380px;
 }
 #container .banner-type4 .content ul li.active a .text {
@@ -786,6 +796,18 @@
 #container .brand .content .brand-goods ul li a.brand-item .text .item-price strong {
   color: red;
 }
+#container .slide-type .cont-title {
+  align-items: center;
+}
+#container .slide-type .cont-title .timer {
+  display: flex;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.1em;
+  color: red;
+}
+#container .slide-type .cont-title .timer i {
+  margin-right: 8px;
+}
 #container .slide-type .content {
   overflow: auto;
 }
@@ -811,7 +833,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   margin: 8px 0;
   font-size: 0.95em;
@@ -1514,10 +1536,14 @@
   }
   #container .list-type .content ul li {
     width: calc(50% - 20px);
+    height: initial;
     margin-left: auto;
   }
   #container .list-type .content ul li:not(:first-child) {
     margin-top: 3px;
+  }
+  #container .list-type .content ul li:not(:last-child) {
+    margin-bottom: 0;
   }
   #container .list-type .content ul li button {
     border-color: white;
@@ -1529,6 +1555,7 @@
   #container .list-type .content ul li .list-item {
     position: absolute;
     width: calc(50% - 20px);
+    height: auto;
     left: 0;
     top: 100%;
     opacity: 0;
@@ -1551,6 +1578,9 @@
   #container .list-type .content ul li .list-item .btn {
     display: none;
   }
+  #container .list-type .content ul li.active {
+    height: initial;
+  }
   #container .list-type .content ul li.active button {
     border-radius: 5px;
   }
@@ -1560,7 +1590,6 @@
   #container .list-type .content ul li.active .list-item {
     top: 50%;
     transform: translateY(-50%);
-    opacity: 1;
     display: flex;
     margin: 0;
   }

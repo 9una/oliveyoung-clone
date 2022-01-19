@@ -306,6 +306,39 @@ function healthylife(){
 }
 healthylife();
 
+// 오늘의 특가
+function countDown() {
+    const now = new Date(),
+          end = new Date(now.getFullYear(),now.getMonth(),now.getDate(),24,00,00);
+  
+    const nt = now.getTime(),
+          et = end.getTime();
+
+    const timer = document.querySelector('.slide-type .timer'),
+          hours = timer.querySelector('.hours'),
+          minutes = timer.querySelector('.minutes'),
+          seconds = timer.querySelector('.seconds');
+
+   if(et > nt) {
+        let sec = parseInt(et - nt) / 1000;
+        let day  = parseInt(sec/60/60/24);
+        sec = (sec - (day * 60 * 60 * 24));
+        let hour = parseInt(sec/60/60);
+        sec = (sec - (hour*60*60));
+        let min = parseInt(sec/60);
+        sec = parseInt(sec-(min*60));
+
+        if(hour<10){hour="0"+hour;}
+        if(min<10){min="0"+min;}
+        if(sec<10){sec="0"+sec;}
+
+        hours.innerText = `${hour}`;
+        minutes.innerText = `${min}`;
+        seconds.innerText = `${sec}`;
+   }
+ }
+ setInterval(countDown, 1000);
+
 
 //오프라인 매장      
 const offlineStore = document.querySelector('.offline-store .wrapper'),
