@@ -28,9 +28,8 @@ function scrollFunc() {
 
 if(window.innerWidth <= 900){
     window.addEventListener('scroll', scrollFunc);
-} else {
-    
 }
+
 
 //banner-type1
 const bannerTypeOne = document.querySelectorAll('.banner-type1 .banner-item');

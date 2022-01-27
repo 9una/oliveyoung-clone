@@ -61,8 +61,12 @@
   width: 400%;
   transition: transform 0.3s;
 }
+#container #mainSlide .slide ul li {
+  width: 100vw;
+}
 #container #mainSlide .slide ul li a {
   height: 100%;
+  max-height: 380px;
   position: relative;
 }
 #container #mainSlide .slide ul li a .text {
@@ -556,6 +560,9 @@
 }
 #container .popular-event .content ul li .event-item .list-item .text p strong {
   color: red;
+}
+#container .popular-event .content ul li .event-item .list-item .text .item-brand {
+  display: none;
 }
 #container .popular-event .content ul li .event-item .list-item .text .item-name {
   margin-bottom: 5px;
@@ -1162,6 +1169,7 @@
   }
   #container #mainSlide .slide ul li a {
     width: 100%;
+    max-height: initial;
     margin: auto;
     text-align: right;
     height: 450px;
@@ -1732,6 +1740,7 @@
     height: 100%;
   }
   #container .popular-event .content ul li .event-item .list-item .text .item-brand {
+    display: block;
     font-weight: 900;
     text-align: center;
     padding: 15px 0 10px;
@@ -1747,6 +1756,9 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+  }
+  #container .popular-event .content ul li .event-item .list-item .text .item-name b {
+    display: none;
   }
   #container .popular-event .content ul li .event-item .list-item .text .item-price {
     padding-bottom: 8px;
@@ -1775,7 +1787,6 @@
   #container .popular-event .content ul li .event-item .list-item .text .item-bn span {
     color: white !important;
     font-size: 1em;
-    font-weight: bold;
     border-radius: 30px;
     padding: 3px 8px;
   }
@@ -1783,7 +1794,13 @@
     background: #f374b7;
   }
   #container .popular-event .content ul li .event-item .list-item .text .item-bn .gift-bn {
+    background: #6fcff7;
+  }
+  #container .popular-event .content ul li .event-item .list-item .text .item-bn .coupon-bn {
     background: #9bce26;
+  }
+  #container .popular-event .content ul li .event-item .list-item .text .item-bn .sale-bn {
+    background: #f65c60;
   }
   #container .popular-event .content ul li .event-item .list-item .btn {
     display: none;
