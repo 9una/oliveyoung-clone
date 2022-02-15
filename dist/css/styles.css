@@ -835,10 +835,10 @@
 #container .slide-type .content ul li {
   width: 140px;
 }
-#container .slide-type .content ul li a .img img {
+#container .slide-type .content ul li div .img img {
   border-radius: 5px;
 }
-#container .slide-type .content ul li a .text .item-name {
+#container .slide-type .content ul li div .text .item-name {
   width: 100%;
   line-height: 1.2em;
   text-overflow: ellipsis;
@@ -849,7 +849,7 @@
   margin: 8px 0;
   font-size: 0.95em;
 }
-#container .slide-type .content ul li a .text .item-name b::after {
+#container .slide-type .content ul li div .text .item-name b::after {
   content: "";
   width: 1px;
   height: 10px;
@@ -857,33 +857,33 @@
   display: inline-block;
   margin: 0 1px 0 5px;
 }
-#container .slide-type .content ul li a .text .item-price small {
+#container .slide-type .content ul li div .text .item-price small {
   display: block;
   font-size: 0.85em;
   text-decoration: line-through;
   color: #999;
   margin-bottom: 5px;
 }
-#container .slide-type .content ul li a .text .item-price strong {
+#container .slide-type .content ul li div .text .item-price strong {
   color: red;
 }
-#container .slide-type .content ul li a .text .item-bn {
+#container .slide-type .content ul li div .text .item-bn {
   margin: 10px 0 15px;
 }
-#container .slide-type .content ul li a .text .item-bn span {
+#container .slide-type .content ul li div .text .item-bn span {
   font-size: 0.8em;
   padding: 3px 6px;
   border-radius: 3px;
   background: #efefef;
   font-weight: bold;
 }
-#container .slide-type .content ul li a .text .item-bn .today-bn {
+#container .slide-type .content ul li div .text .item-bn .today-bn {
   color: #ff6781;
 }
-#container .slide-type .content ul li a .text .item-bn .gift-bn {
+#container .slide-type .content ul li div .text .item-bn .gift-bn {
   color: #888;
 }
-#container .slide-type .content ul li a .btn button {
+#container .slide-type .content ul li div .btn button {
   margin-right: 15px;
   color: #666;
 }
@@ -2540,11 +2540,16 @@ header .lnb-category .sub-cate > div ul {
     margin-bottom: 15px;
     width: 100%;
   }
-  header .lnb-category .main-cate > div ul .item-all,
-header .lnb-category .sub-cate > div ul .item-all {
+  header .lnb-category .main-cate > div ul li .item-all,
+header .lnb-category .sub-cate > div ul li .item-all {
     font-size: 1.1em;
     margin-bottom: 8px;
     font-weight: bold;
+    color: black;
+  }
+  header .lnb-category .main-cate > div ul li .item-all i,
+header .lnb-category .sub-cate > div ul li .item-all i {
+    margin-left: 5px;
   }
   header .lnb-category .main-cate > div ul li a,
 header .lnb-category .sub-cate > div ul li a {

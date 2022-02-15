@@ -253,12 +253,16 @@ header {
           ul {
             margin-bottom: 15px;
             width: 100%;
-            .item-all {
-              font-size: 1.1em;
-              margin-bottom: 8px;
-              font-weight: bold;
-            }
             li {
+              .item-all {
+                font-size: 1.1em;
+                margin-bottom: 8px;
+                font-weight: bold;
+                color: black;
+                i {
+                  margin-left: 5px;
+                }
+              }
               a {
                 padding: 3px 0;
                 font-size: 0.95em;
