@@ -7,14 +7,13 @@ function mainSlide(){
     if(window.innerWidth >= 901){
         mainPagination.innerHTML = `<button type="button" class="prev-btn"><i class="fas fa-chevron-left"></i></button>
         <p><span class="num"></span> / <span class="entire"></span></p>
-        <button type="next" class="next-btn"><i class="fas fa-chevron-right"></i></button>`;
+        <button type="next" class="next-btn"><i class="fas fa-chevron-right"></i></button><button type="button" class="play-btn pause"><i class="fa-solid fa-pause"></i></button>`;
     } else {
         mainPagination.innerHTML = paginationHtml;
     }
 
-    let curPos = 0;
-    let position = 0;
-    let start_x, end_x;
+    let curPos = 0,
+        position = 0;
     const main = document.querySelector('main'),
         slide = main.querySelector('.slide'),
         list = slide.querySelector('ul'),
@@ -22,24 +21,22 @@ function mainSlide(){
         itemNum = main.querySelector('.pagination .num'),
         entireNum = main.querySelector('.pagination .entire'),
         ITEM_WIDTH = 100 / item.length;
+    
+    const prevBtn = main.querySelector('.pagination .prev-btn'),
+          nextBtn = main.querySelector('.pagination .next-btn');
         
     //init pagination num
     itemNum.innerText = `${curPos + 1}`;
     entireNum.innerText = `${item.length}`;
+    
+    list.style.transform = "translateX(0)";
 
     //main slide change - mobile or desktop
-    if(window.innerWidth >= 901){
-        list.style.transform = "translateX(0)";
-
-        //desktop size - opacity 0 >> 1
-        const prevBtn = main.querySelector('.pagination .prev-btn'),
-              nextBtn = main.querySelector('.pagination .next-btn');
-
-        function prev(){
-            if(curPos > 0){
+    function prev() { 
+        if (window.innerWidth > 900) {
+            if (curPos > 0) {
                 curPos -= 1;
-            }else {
-                //curPos = first item
+            } else { 
                 curPos = item.length - 1;
             }
             let j = 0;
@@ -48,28 +45,7 @@ function mainSlide(){
             }
             item[curPos].classList.add('active');
             itemNum.innerText = `${curPos + 1}`;
-        }
-        function next(){
-            if(curPos < item.length - 1){
-                curPos += 1;
-            }else {
-                //curPos = last item
-                curPos = 0;
-            }
-            let j = 0;
-            while(j < item.length){
-                item[j++].classList.remove('active');
-            }
-            item[curPos].classList.add('active');
-            itemNum.innerText = `${curPos + 1}`;
-        }
-        
-        prevBtn.addEventListener('click', prev);
-        nextBtn.addEventListener('click', next);
-    }
-    if(window.innerWidth < 901) {
-        //mobile size - transform move & setInterval
-        function prev(){
+        } else {
             if(curPos > 0){
                 position += ITEM_WIDTH;
                 list.style.transform = `translateX(${position}%)`;
@@ -82,8 +58,22 @@ function mainSlide(){
             }
             itemNum.innerText = `${curPos + 1}`;
         }
-        
-        function next(){
+    }
+
+    function next() { 
+        if (window.innerWidth > 900) {
+            if (curPos < item.length - 1) {
+                curPos += 1;
+            } else { 
+                curPos = 0;
+            }
+            let j = 0;
+            while(j < item.length){
+                item[j++].classList.remove('active');
+            }
+            item[curPos].classList.add('active');
+            itemNum.innerText = `${curPos + 1}`;
+        } else { 
             if(curPos < item.length - 1){
                 position -= ITEM_WIDTH;
                 list.style.transform = `translateX(${position}%)`;
@@ -96,24 +86,79 @@ function mainSlide(){
             }
             itemNum.innerText = `${curPos + 1}`;
         }
-        // timerNext = setInterval(next,3500);
+    }
 
+    if (window.innerWidth > 900) { 
+        prevBtn.addEventListener('click', prev);
+        nextBtn.addEventListener('click', next);
+    }
 
-        function touch_start(event){
-            start_x = event.touches[0].pageX;
-        }
-        function touch_end(event){
-            end_x = event.changedTouches[0].pageX;
-            if(start_x > end_x){
-                next();
-            } else {
-                prev();
-            }
+    //touch event    
+    let touch_start_x,
+        touch_end_x;
+
+    function touch_start(event){
+        touch_start_x = event.touches[0].pageX;
+    }
+    function touch_end(event){
+        touch_end_x = event.changedTouches[0].pageX;
+        if(touch_start_x > touch_end_x){
+            next();
+        } else {
+            prev();
         }
     }
 
     list.addEventListener('touchstart', touch_start);
     list.addEventListener('touchend', touch_end);
+
+    //mouse down, up event
+    let click_start_x,
+        click_end_x;
+    
+    function click_start(event) { 
+        click_start_x = event.clientX;
+    }
+    function click_end(event) { 
+        click_end_x = event.clientX;
+        if (click_start_x > click_end_x) {
+            next();
+        } else { 
+            prev();
+        }
+    }
+    slide.addEventListener('mousedown', click_start);
+    slide.addEventListener('mouseup', click_end);
+
+    //slide play
+
+    let delay = 300;
+    let play = setInterval(next, 4000);
+    
+    //media 900px ~ play & pause button
+    if (window.innerWidth > 900) { 
+        const playBtn = document.querySelector('#mainSlide .play-btn');
+        playBtn.addEventListener('click', () => {
+            if (playBtn.classList.contains('pause')) {
+                clearInterval(play);
+                playBtn.className = 'play-btn play';
+                playBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+    
+            } else if (playBtn.classList.contains('play')) {
+                
+                play = setInterval(next, 4000);
+                playBtn.className = 'play-btn pause';
+                playBtn.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+            }
+        })
+    }
+
+    window.addEventListener('resize', () => { 
+        clearInterval(play);
+        play = setTimeout(function(){
+            console.log('resize');
+        }, delay);
+    })
 }
 mainSlide();
 window.addEventListener('resize', mainSlide);

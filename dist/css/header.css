@@ -1,17 +1,264 @@
-/* Error: Undefined variable.
- *   ,
- * 7 |   border-bottom: $borderGrey;
- *   |                  ^^^^^^^^^^^
- *   '
- *   src\scss\header.scss 7:18  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 7 \2502    border-bottom: $borderGrey;\d\a   \2502                   ^^^^^^^^^^^\a   \2575 \a   src\\scss\\header.scss 7:18  root stylesheet";
+header {
+  position: fixed;
+  width: 100%;
+  background: white;
+  z-index: 9;
+  transition: transform 0.3s;
+  border-bottom: 1px solid #cfcfcf;
 }
+header.scroll-down {
+  transform: translateY(-51px);
+}
+header.scroll-down .header-inner {
+  opacity: 0;
+}
+header .header-top {
+  display: none;
+}
+header > nav .wrapper, header > div .wrapper {
+  max-width: 1020px;
+  margin: auto;
+}
+header .header-inner .wrapper {
+  padding: 10px 10px 0;
+  display: grid;
+  grid-template-columns: 50px auto 60px;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 0.3s;
+}
+header .header-inner .wrapper a {
+  height: 40px;
+}
+header .header-inner .wrapper a.logo {
+  background: url(https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png) no-repeat 46% center;
+  background-size: cover;
+  font-size: 0;
+}
+header .header-inner .wrapper a.delivery, header .header-inner .wrapper a.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #555;
+}
+header .header-inner .wrapper a.delivery i, header .header-inner .wrapper a.cart i {
+  font-size: 1.5em;
+}
+header .header-inner .wrapper .search {
+  position: relative;
+}
+header .header-inner .wrapper .search input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #9bce26;
+  padding: 7px 0;
+}
+header .header-inner .wrapper .search button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3em;
+  color: #777;
+}
+header .header-inner .wrapper .inner-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+header .gnb .wrapper ul {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .gnb .wrapper ul li a {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 10px 0 7px;
+}
+header .gnb .wrapper ul li.active a {
+  font-size: 1.3em;
+  color: #ff96a7;
+}
+header .gnb .wrapper ul li.active a::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: #ff96a7;
+  display: block;
+  top: 8px;
+  position: relative;
+}
+header .lnb-category {
+  display: none;
+}
+
+/* responsive */
+@media (min-width: 901px) {
+  header {
+    position: relative;
+    border-bottom: 2px solid #555;
+  }
+  header .header-top {
+    display: block;
+  }
+  header .header-top .wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+  header .header-top .wrapper ul {
+    display: flex;
+    padding: 10px;
+  }
+  header .header-top .wrapper ul li:not(:first-child) a::before {
+    content: "";
+    width: 1px;
+    height: 10px;
+    background: #cfcfcf;
+    display: inline-block;
+    margin: 0 8px;
+  }
+  header .header-top .wrapper ul li a {
+    display: inline-block;
+    font-size: 0.9em;
+  }
+  header .header-inner {
+    border-bottom: 1px solid #cfcfcf;
+    padding-bottom: 15px;
+  }
+  header .header-inner .wrapper {
+    padding: 15px 0;
+    grid-template-columns: 248px 320px 248px;
+    justify-content: space-between;
+  }
+  header .header-inner .wrapper .search {
+    width: 100%;
+    max-width: 340px;
+  }
+  header .header-inner .wrapper .search input {
+    border: 2px solid #9bce26;
+    border-radius: 30px;
+    padding: 10px 15px;
+  }
+  header .header-inner .wrapper .search button {
+    right: 13px;
+  }
+  header .header-inner .wrapper .inner-right a {
+    display: flex;
+    align-items: center;
+  }
+  header .header-inner .wrapper .inner-right a:not(:last-child)::after {
+    content: "";
+    width: 1px;
+    height: 10px;
+    background: #cfcfcf;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  header .gnb .wrapper {
+    display: flex;
+  }
+  header .gnb .wrapper .category-btn {
+    font-size: 1.1em;
+    font-weight: bold;
+    width: 170px;
+    border-left: 1px solid #cfcfcf;
+    border-right: 1px solid #cfcfcf;
+    position: relative;
+  }
+  header .gnb .wrapper .category-btn::before {
+    content: "\f0c9";
+    font-family: "Font Awesome 5 Free";
+    font-weight: bold;
+    position: absolute;
+    left: 18%;
+  }
+  header .gnb .wrapper ul {
+    width: calc(100% - 172px);
+    padding: 0;
+    justify-content: initial;
+  }
+  header .gnb .wrapper ul li {
+    margin-left: auto;
+  }
+  header .gnb .wrapper ul li a {
+    padding: 15px 0;
+  }
+  header .lnb-category {
+    position: absolute;
+    width: 100%;
+    max-width: 1020px;
+    top: 163px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #dbdbdb;
+    border: 2px solid black;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1px;
+  }
+  header .lnb-category.active {
+    display: grid;
+  }
+  header .lnb-category .main-cate,
+header .lnb-category .sub-cate {
+    padding: 20px;
+    background: white;
+  }
+  header .lnb-category .main-cate h3,
+header .lnb-category .sub-cate h3 {
+    font-size: 1.3em;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px;
+    padding-left: 15px;
+  }
+  header .lnb-category .main-cate > div,
+header .lnb-category .sub-cate > div {
+    padding-left: 15px;
+  }
+  header .lnb-category .main-cate > div ul,
+header .lnb-category .sub-cate > div ul {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  header .lnb-category .main-cate > div ul li .item-all,
+header .lnb-category .sub-cate > div ul li .item-all {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: black;
+  }
+  header .lnb-category .main-cate > div ul li .item-all i,
+header .lnb-category .sub-cate > div ul li .item-all i {
+    margin-left: 5px;
+  }
+  header .lnb-category .main-cate > div ul li a,
+header .lnb-category .sub-cate > div ul li a {
+    padding: 3px 0;
+    font-size: 0.95em;
+    font-weight: bold;
+    color: #777;
+  }
+  header .lnb-category .main-cate .wrap-column {
+    column-width: 115px;
+    column-gap: 20px;
+  }
+  header .lnb-category .main-cate .wrap-column ul {
+    display: inline-block;
+  }
+  header .lnb-category .close-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #333;
+    color: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */

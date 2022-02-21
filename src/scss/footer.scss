@@ -1,3 +1,6 @@
+@import "_variables";
+@import "_mixins";
+
 footer {
   display: flex;
   flex-direction: column;
@@ -150,15 +153,6 @@ footer {
 }
 
 /* responsive */
-
-@include mobile-s {
-}
-
-@include mobile {
-}
-
-@include tablet {
-}
 
 @include desktop {
   footer {
